@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     public function index(){
-        return view('auth.login');
+        return view('auth.login2');
+    }
+    public function index2(){
+        return view('auth.login2');
     }
     public function customLogin(Request $request){
         $request->validate([
@@ -19,7 +22,7 @@ class AuthController extends Controller
         ]);
         $credentials=$request->only('email','password');
         if(Auth::attempt($credentials)){
-            return redirect()->intended('dashboard')->withSuccess('Signed in');
+            return redirect()->intended('dashboard')->with('Signed in');
         }
         return redirect('login')->withSuccess('Login details are not valid');
     }

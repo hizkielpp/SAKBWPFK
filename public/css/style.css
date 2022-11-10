@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;1,700&display=swap');
+
+:root {
+    --green: #03733C;
+    --black: #282828;
+    --grey: #788880;
+    --light: #F5F5F5;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Color */
+.green {
+    color: var(--green);
+}
+
+.black {
+    color: var(--black);
+}
+
+.grey {
+    color: var(--grey);
+}
+
+.light {
+    color: var(--light);
+}
+
+/* End color */
+
+/* Font weight */
+.fwlight {
+    font-weight: 300;
+}
+
+.fwnormal {
+    font-weight: 400;
+}
+
+.fwsemi {
+    font-weight: 600;
+}
+
+/* End font weight */
+
+/* Button */
+.btn__green {
+    background-color: var(--green);
+    border: var(--green);
+}
+
+.btn__green:hover {
+    background-color: #005F28;
+    box-shadow: rgb(3, 115, 60, .5) 0px 4px 8px;
+    border-color: var(--green);
+}
+
+/* End button */
+
+/* Form */
+form input:focus {
+    box-shadow: none !important;
+    border: 1px solid var(--green) !important;
+    transition: .8s;
+}
+
+/* End form */
+
+/* ================ Responsive ================ */
+
+/* Desktop */
+@media only screen and (min-width: 1200px) {}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {}

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::get('login2', [AuthController::class, 'index2'])->name('login2');
 Route::post('custom-login', [AuthController::class, 'customLogin'])->name('login.custom'); 
 Route::get('registration', [AuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [AuthController::class, 'customRegistration'])->name('register.custom'); 
@@ -27,4 +28,6 @@ Route::prefix('/')->middleware('checkAuth')->group(function(){
         'reports' => ReportController::class,
     ]);
 });
-
+Route::fallback(function () {
+    return view('auth.login2');
+});

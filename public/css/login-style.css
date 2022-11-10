@@ -1,0 +1,52 @@
+.login .content,
+.login .image {
+    width: 50%;
+    height: 100vh;
+}
+
+.login .content {
+    background-color: white;
+}
+
+.login .image {
+    background-color: var(--green);
+}
+
+.login .image div:first-child {
+    right: 0;
+    bottom: 20%;
+}
+
+.login .image img {
+    width: 100%;
+}
+
+.login .image .title h5 {
+    width: 90%;
+}
+
+.login .image span {
+    width: 15px;
+    height: 15px;
+    background-color: var(--light);
+    border-radius: 50%;
+}
+
+/* ================ Responsive ================ */
+
+/* Desktop */
+@media only screen and (min-width: 1200px) {}
+
+/* Large */
+@media only screen and (min-width: 992px) {
+    .login {
+        display: flex;
+    }
+
+    .login .image {
+        display: block;
+    }
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {}

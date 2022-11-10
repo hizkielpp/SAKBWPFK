@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            $table->integer();
+            $table->string('name')->unique();
+            $table->enum('pre',['terupload','diproses','ditolak','validasi supervisor','sudah diposting']);
+            $table->enum('post',['teruopload','diproses','ditolak','validasi supervisor','sudah diposting']);
             $table->timestamps();
         });
     }

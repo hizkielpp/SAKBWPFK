@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
+            $table->string("name")->unique();
             $table->string("file_name");
-            $table->integer('id_user')->unsigned();
-            $table->index('user_id');
+            $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
-            $table->string("status");
+            $table->enum('status',['terupload','diproses','ditolak','validasi supervisor','sudah diposting'])->default('terupload');
             $table->timestamps();
         });
     }
