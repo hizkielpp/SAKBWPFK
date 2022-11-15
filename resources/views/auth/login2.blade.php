@@ -16,6 +16,11 @@
 </head>
 
 <body>
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+    @endif
     <div class="login">
         <div class="content d-flex justify-content-center align-items-center">
             <div class="body w-50">

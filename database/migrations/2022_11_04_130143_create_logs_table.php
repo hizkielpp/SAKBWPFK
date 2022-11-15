@@ -15,9 +15,12 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('name');
             $table->enum('pre',['terupload','diproses','ditolak','validasi supervisor','sudah diposting']);
             $table->enum('post',['teruopload','diproses','ditolak','validasi supervisor','sudah diposting']);
+            $table->string('keterangan');
             $table->timestamps();
         });
     }

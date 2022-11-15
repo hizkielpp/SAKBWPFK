@@ -2,6 +2,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LogController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,12 +23,13 @@ Route::get('registration', [AuthController::class, 'registration'])->name('regis
 Route::post('custom-registration', [AuthController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 Route::prefix('/')->middleware('checkAuth')->group(function(){
-    Route::get('dashboard', [AuthController::class, 'dashboard']); 
-    Route::resources([
-        'users' => UserController::class,
-        'reports' => ReportController::class,
-    ]);
+    Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard'); 
+    Route::resource('reports',ReportController::class);
+    Route::resource('users',UserController::class)->middleware('checkAdmin');
 });
+Route::get('/logs',[LogController::class,'index'])->name('logIndex');
+Route::get('/download/{id}',[ReportController::class,'download'])->middleware('checkAdmin')->name('report.download');
+Route::get('/test', [ReportController::class,'indexAdmin'])->name('reportIndexAdmin')->middleware('checkAdmin');
 Route::fallback(function () {
     return view('auth.login2');
 });
