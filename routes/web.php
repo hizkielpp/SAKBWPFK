@@ -16,20 +16,38 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::get('login2', [AuthController::class, 'index2'])->name('login2');
-Route::post('custom-login', [AuthController::class, 'customLogin'])->name('login.custom'); 
-Route::get('registration', [AuthController::class, 'registration'])->name('register-user');
-Route::post('custom-registration', [AuthController::class, 'customRegistration'])->name('register.custom'); 
-Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
-Route::prefix('/')->middleware('checkAuth')->group(function(){
-    Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard'); 
-    Route::resource('reports',ReportController::class);
-    Route::resource('users',UserController::class)->middleware('checkAdmin');
+// Route::get('login', [AuthController::class, 'index'])->name('login');
+// Route::get('login2', [AuthController::class, 'index2'])->name('login2');
+// Route::post('custom-login', [AuthController::class, 'customLogin'])->name('login.custom'); 
+// Route::get('registration', [AuthController::class, 'registration'])->name('register-user');
+// Route::post('custom-registration', [AuthController::class, 'customRegistration'])->name('register.custom'); 
+// Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
+//dengan middleware user
+// Route::prefix('/')->middleware('checkAuth')->group(function(){
+//     Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard'); 
+//     Route::resource('reports',ReportController::class);
+//     Route::resource('users',UserController::class)->middleware('checkAdmin');
+// });
+// Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard'); 
+// Route::resource('reports',ReportController::class);
+// Route::resource('users',UserController::class);
+//versi tanpa middleware
+// Route::get('/logs',[LogController::class,'index'])->name('logIndex');
+// Route::get('/download/{id}',[ReportController::class,'download'])->middleware('checkAdmin')->name('report.download');
+// Route::get('/test', [ReportController::class,'indexAdmin'])->name('reportIndexAdmin')->middleware('checkAdmin');
+// Route::fallback(function () {
+//     return view('auth.login2');
+// });
+//Untuk baca file yang ada di direktori user
+Route::get('/beranda',function(Request $request){
+    return view('user.beranda');
 });
-Route::get('/logs',[LogController::class,'index'])->name('logIndex');
-Route::get('/download/{id}',[ReportController::class,'download'])->middleware('checkAdmin')->name('report.download');
-Route::get('/test', [ReportController::class,'indexAdmin'])->name('reportIndexAdmin')->middleware('checkAdmin');
-Route::fallback(function () {
-    return view('auth.login2');
+Route::get('/informasi',function(Request $request){
+    return view('user.informasi');
+});
+Route::get('/laporan-kegiatan',function(Request $request){
+    return view('user.laporan-kegiatan');
+});
+Route::get('/login',function(Request $request){
+    return view('user.login');
 });
