@@ -1,9 +1,12 @@
 <?php
+
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LogController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
 
 
 /*
@@ -39,15 +42,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('auth.login2');
 // });
 //Untuk baca file yang ada di direktori user
-Route::get('/beranda',function(Request $request){
+Route::get('/beranda', function (Request $request) {
     return view('user.beranda');
 });
-Route::get('/informasi',function(Request $request){
+Route::get('/informasi', function (Request $request) {
     return view('user.informasi');
 });
-Route::get('/laporan-kegiatan',function(Request $request){
+Route::get('/laporan-kegiatan', function (Request $request) {
     return view('user.laporan-kegiatan');
 });
-Route::get('/login',function(Request $request){
+Route::get('/login', function (Request $request) {
     return view('user.login');
 });
+

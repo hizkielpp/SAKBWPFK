@@ -1,0 +1,24 @@
+.informasi .nomor {
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--green);
+}
+
+.informasi .nomor p {
+    font-size: 12px;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+    .informasi .nomor {
+        min-width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: var(--green);
+    }
+
+    .informasi .nomor p {
+        font-size: 14px;
+    }
+}

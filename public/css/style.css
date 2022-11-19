@@ -2,14 +2,95 @@
 
 :root {
     --green: #03733C;
+    --dark-green: #0A6932;
     --black: #282828;
     --grey: #788880;
-    --light: #F5F5F5;
+    --light: #d1d1d1;
 }
 
 body {
     font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
 }
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-bottom: 0;
+}
+
+label {
+    font-size: 16px;
+}
+
+.wx {
+    width: 90%;
+}
+
+.w90 {
+    width: 90%;
+}
+
+.mt2 {
+    margin-top: 2.5rem;
+}
+
+/* Table */
+.table__container {
+    border: 1px solid var(--green);
+    border-radius: 10px;
+    padding: 1.5rem 2.5rem;
+}
+
+#laporanKegiatan thead tr th {
+    font-weight: bold;
+}
+
+table thead tr th:nth-child(4),
+table tbody tr td:nth-child(4) {
+    text-align: center;
+}
+
+#laporanKegiatan_paginate .paginate_button {
+    border-radius: 50%;
+}
+
+#laporanKegiatan_paginate .paginate_button.current:hover {
+    background-color: var(--green) !important;
+    border-color: white;
+    color: white !important;
+    transition: .3s;
+}
+
+/* End table */
 
 /* Color */
 .green {
@@ -45,16 +126,39 @@ body {
 
 /* End font weight */
 
+.bggreen {
+    background-color: var(--green);
+}
+
 /* Button */
 .btn__green {
-    background-color: var(--green);
-    border: var(--green);
+    background-color: white;
+    border: 1px solid white;
+    color: var(--black);
+    font-weight: bold;
 }
 
 .btn__green:hover {
-    background-color: #005F28;
+    background-color: white;
+    color: var(--black);
     box-shadow: rgb(3, 115, 60, .5) 0px 4px 8px;
     border-color: var(--green);
+}
+
+.btn__green2 {
+    background-color: var(--green);
+    border-color: var(--dark-green);
+}
+
+.btn__green2:hover {
+    background-color: var(--dark-green);
+    border-color: var(--dark-green);
+    box-shadow: rgb(3, 115, 60, .5) 0px 4px 8px;
+}
+
+.btn__delete {
+    color: #DC3545;
+    border: none;
 }
 
 /* End button */
@@ -68,10 +172,113 @@ form input:focus {
 
 /* End form */
 
+/* Navbar */
+nav {
+    background-color: var(--green);
+}
+
+nav .logo {
+    width: 50px;
+}
+
+nav .nav-item a {
+    color: var(--light);
+}
+
+nav .nav-item a:hover {
+    color: white;
+}
+
+nav .active {
+    color: white !important;
+}
+
+nav .dropdown button {
+    background-color: unset !important;
+    border: none !important;
+    color: var(--light);
+}
+
+nav button {
+    border-color: white !important;
+}
+
+nav button:focus {
+    border-color: white;
+    box-shadow: none !important;
+}
+
+nav button path {
+    color: white;
+}
+
+/* End navbar */
+
+/* Header */
+.header span {
+    width: 30px;
+    height: 2.5px;
+    background-color: var(--green);
+}
+
+/* End header */
+
+/* Footer */
+footer {
+    position: sticky;
+    top: 100%;
+}
+
+/* End footer */
+
 /* ================ Responsive ================ */
 
-/* Desktop */
-@media only screen and (min-width: 1200px) {}
+/* Mobile */
+@media only screen and (min-width: 576px) {
+    nav>div:first-child {
+        width: 75% !important;
+    }
+
+    .navbar-brand h5 {
+        display: inline !important;
+    }
+}
 
 /* Tablet */
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+
+    h5 {
+        font-size: 18px;
+    }
+
+    h6 {
+        font-size: 16px;
+    }
+
+    .wx {
+        width: 60%;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1200px) {
+    nav .nav-item a {
+        padding: .5rem 2rem !important;
+
+    }
+}

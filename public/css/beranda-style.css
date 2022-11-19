@@ -1,0 +1,73 @@
+/* Hero */
+.beranda .hero {
+    height: calc(100vh - 76px);
+    width: 100%;
+    top: 0;
+}
+
+.beranda .hero img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.beranda .hero div {
+    z-index: 2;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: min-content;
+}
+
+.beranda .hero a {
+    width: unset;
+}
+
+.beranda .card {
+    background-color: white;
+    border: 1px solid var(--green);
+    box-shadow: rgba(0, 0, 0, 0.40) 0px 5px 15px;
+}
+
+/* End hero */
+
+/* Layanan */
+.layanan {
+    margin-top: 7rem;
+}
+
+.layanan>div:first-child {
+    width: fit-content;
+}
+
+/* End layanan */
+
+/* ================ Responsive ================ */
+/* Mobile */
+@media only screen and (min-width: 576px) {
+
+    .beranda .hero .card,
+    .layanan {
+        width: 75%;
+    }
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+    .beranda .btn__green:hover {
+        background-color: #005F28;
+        box-shadow: rgb(3, 115, 60, .5) 0px 4px 8px;
+        border-color: var(--green);
+    }
+
+    .beranda .hero .card,
+    .layanan {
+        width: 50%;
+    }
+
+    .layanan {
+        margin-top: 8.5rem;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1200px) {}
