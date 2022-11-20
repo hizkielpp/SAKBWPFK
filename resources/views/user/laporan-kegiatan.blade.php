@@ -1,8 +1,8 @@
 @extends('/user/template-user')
 
 @section('content')
-    {{-- Data tables --}}
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+    {{-- Bootstrap data tables --}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
 
     <div class="laporan__kegiatan wx mx-auto mt2">
         <div class="d-flex header align-items-center justify-content-center mb-4">
@@ -17,53 +17,125 @@
                 <a href="" class="btn btn-primary btn__green2">Upload
                     Kegiatan</a>
             </div>
-            <table id="laporanKegiatan" class="table table-responsive mb-3 mt-3">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Judul</th>
-                        <th>Status</th>
-                        <th>Urutan ke</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Laporan Kegiatan A</td>
-                        <td>Validasi supervisor</td>
-                        <td>3</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
-                                <button type="button" class="btn__delete"><i class="fa-solid fa-trash"></i></button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Laporan Kegiatan B</td>
-                        <td>Validasi supervisor</td>
-                        <td>5</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
-                                <button type="button" class="btn__delete"><i class="fa-solid fa-trash"></i></button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive ">
+                <table id="laporanKegiatan" class="table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Judul</th>
+                            <th>Status</th>
+                            <th>Urutan ke</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Laporan Kegiatan A</td>
+                            <td>Validasi supervisor</td>
+                            <td>3</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
+                                    <button type="button" class="btn__delete"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Laporan Kegiatan B</td>
+                            <td>Validasi supervisor</td>
+                            <td>5</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
+                                    <button type="button" class="btn__delete"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Laporan Kegiatan A</td>
+                            <td>Validasi supervisor</td>
+                            <td>3</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
+                                    <button type="button" class="btn__delete"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Laporan Kegiatan B</td>
+                            <td>Validasi supervisor</td>
+                            <td>5</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
+                                    <button type="button" class="btn__delete"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Laporan Kegiatan A</td>
+                            <td>Validasi supervisor</td>
+                            <td>3</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
+                                    <button type="button" class="btn__delete"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Laporan Kegiatan B</td>
+                            <td>Validasi supervisor</td>
+                            <td>5</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
+                                    <button type="button" class="btn__delete"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
     {{-- Data Tables --}}
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js">
+    </script>
 
     {{-- Initializing data tables --}}
     <script>
         $(document).ready(function() {
-            $('#laporanKegiatan').DataTable();
+            $('#laporanKegiatan').DataTable({
+                order: [
+                    [2, 'desc']
+                ],
+                language: {
+                    lengthMenu: 'Menampilkan _MENU_ baris',
+                    zeroRecords: 'Nothing found - sorry',
+                    info: 'Menampilkan _PAGE_ dari _PAGES_',
+                    infoEmpty: 'Baris tidak tersedia',
+                    infoFiltered: '(filtered from _MAX_ total records)',
+                    "search": "Cari :",
+                    "paginate": {
+                        "previous": "Sebelumnya",
+                        "next": "Berikutnya"
+                    }
+                },
+                lengthMenu: [
+                    [5, 10, 20, -1],
+                    [5, 10, 20, 'All'],
+                ],
+            });
         });
     </script>
 @endsection

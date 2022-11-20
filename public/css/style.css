@@ -67,11 +67,37 @@ label {
 .table__container {
     border: 1px solid var(--green);
     border-radius: 10px;
-    padding: 1.5rem 2.5rem;
+    padding: .75rem;
 }
 
 #laporanKegiatan thead tr th {
     font-weight: bold;
+}
+
+/* Pagination */
+div.table-responsive>div.dataTables_wrapper>div.row:last-child {
+    margin-top: .75rem !important;
+}
+
+div.table-responsive>div.dataTables_wrapper>div.row:last-child>div:first-child {
+    margin-bottom: .5rem;
+}
+
+/* Show and search */
+div.table-responsive>div.dataTables_wrapper>div.row:first-child {
+    margin-bottom: .75rem !important;
+}
+
+div.table-responsive>div.dataTables_wrapper>div.row:first-child>div:first-child {
+    margin-bottom: .5rem;
+}
+
+table thead {
+    border-bottom: 1px solid lightslategray;
+}
+
+table tbody tr {
+    border-bottom: 1px solid var(--light);
 }
 
 table thead tr th:nth-child(4),
@@ -79,8 +105,24 @@ table tbody tr td:nth-child(4) {
     text-align: center;
 }
 
-#laporanKegiatan_paginate .paginate_button {
+#laporanKegiatan_paginate .paginate_button.page-item.active a {
     border-radius: 50%;
+    background-color: var(--green);
+    color: white;
+    border-color: var(--dark-green);
+}
+
+#laporanKegiatan_paginate .paginate_button.page-item.active a:hover {
+    color: white;
+}
+
+#laporanKegiatan_paginate .paginate_button.page-item a {
+    color: var(--grey);
+    margin: .25rem;
+}
+
+#laporanKegiatan_paginate .paginate_button.page-item a:focus {
+    box-shadow: none;
 }
 
 #laporanKegiatan_paginate .paginate_button.current:hover {
@@ -89,6 +131,22 @@ table tbody tr td:nth-child(4) {
     color: white !important;
     transition: .3s;
 }
+
+/* Breakpoint show and search */
+div.table-responsive>div.dataTables_wrapper>div.row:last-child>div {
+    width: 100%;
+}
+
+div.table-responsive>div.dataTables_wrapper>div.row:last-child>div>div {
+    text-align: center;
+}
+
+div.table-responsive>div.dataTables_wrapper>div.row:last-child>div:last-child ul {
+    justify-content: center;
+}
+
+/* End reakpoint show and search */
+
 
 /* End table */
 
@@ -242,6 +300,10 @@ footer {
     .navbar-brand h5 {
         display: inline !important;
     }
+
+    .table__container {
+        padding: 1.5rem 2.5rem;
+    }
 }
 
 /* Tablet */
@@ -272,6 +334,35 @@ footer {
 
     .wx {
         width: 60%;
+    }
+
+    div.table-responsive>div.dataTables_wrapper>div.row:first-child>div:first-child {
+        margin-bottom: 0;
+    }
+
+    div.table-responsive>div.dataTables_wrapper>div.row:last-child>div:first-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Large */
+@media only screen and (min-width: 992px) {
+
+    /* Breakpoint show and search */
+    div.table-responsive>div.dataTables_wrapper>div.row:last-child>div {
+        width: 41.66666667%;
+    }
+
+    div.table-responsive>div.dataTables_wrapper>div.row:last-child {
+        justify-content: space-between;
+    }
+
+    div.table-responsive>div.dataTables_wrapper>div.row:last-child>div>div {
+        text-align: start;
+    }
+
+    div.table-responsive>div.dataTables_wrapper>div.row:last-child>div:last-child ul {
+        justify-content: flex-end;
     }
 }
 
