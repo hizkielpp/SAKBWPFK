@@ -54,4 +54,7 @@ Route::get('/laporan-kegiatan', function (Request $request) {
 Route::get('/login', function (Request $request) {
     return view('user.login');
 });
+Route::get('/upload-kegiatan', function(Request $request){
+    return view('user.upload-kegiatan');
+});
 
