@@ -57,4 +57,7 @@ Route::get('/login', function (Request $request) {
 Route::get('/upload-kegiatan', function(Request $request){
     return view('user.upload-kegiatan');
 });
+Route::get('/index-admin', function(Request $request){
+    return view('admin.index');
+});
 
