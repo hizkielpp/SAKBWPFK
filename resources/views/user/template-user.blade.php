@@ -69,7 +69,7 @@
     @yield('content')
 
     {{-- Footer --}}
-    <footer class="bggreen text-center p-4 mt-5 text-white">
+    <footer class="bggreen text-center p-4 text-white">
         <h6 class="mb-0">Copyright 2022. Fakultas Kedokteran Universitas Diponegoro.</h6>
     </footer>
     {{-- End footer --}}

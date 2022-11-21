@@ -14,7 +14,7 @@
         <div class="table__container">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4 class="fw-bold green">Daftar Laporan Kegiatan</h4>
-                <a href="" class="btn btn-primary btn__green2">Upload
+                <a href="/upload-kegiatan" class="btn btn-primary btn__green2">Upload
                     Kegiatan</a>
             </div>
             <div class="table-responsive ">
@@ -32,8 +32,8 @@
                         <tr>
                             <td>1</td>
                             <td>Laporan Kegiatan A</td>
-                            <td>Validasi supervisor</td>
-                            <td>3</td>
+                            <td>Diproses</td>
+                            <td>2</td>
                             <td>
                                 <div class="d-flex align-items-center">
                                     <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
@@ -44,7 +44,7 @@
                         <tr>
                             <td>2</td>
                             <td>Laporan Kegiatan B</td>
-                            <td>Validasi supervisor</td>
+                            <td>Diproses</td>
                             <td>5</td>
                             <td>
                                 <div class="d-flex align-items-center">
@@ -55,9 +55,9 @@
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td>Laporan Kegiatan A</td>
+                            <td>Laporan Kegiatan C</td>
                             <td>Validasi supervisor</td>
-                            <td>3</td>
+                            <td>6</td>
                             <td>
                                 <div class="d-flex align-items-center">
                                     <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
@@ -67,9 +67,9 @@
                         </tr>
                         <tr>
                             <td>4</td>
-                            <td>Laporan Kegiatan B</td>
-                            <td>Validasi supervisor</td>
-                            <td>5</td>
+                            <td>Laporan Kegiatan D</td>
+                            <td>Sudah diposting</td>
+                            <td>8</td>
                             <td>
                                 <div class="d-flex align-items-center">
                                     <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
@@ -79,9 +79,9 @@
                         </tr>
                         <tr>
                             <td>5</td>
-                            <td>Laporan Kegiatan A</td>
-                            <td>Validasi supervisor</td>
-                            <td>3</td>
+                            <td>Laporan Kegiatan E</td>
+                            <td>Sudah diposting</td>
+                            <td>9</td>
                             <td>
                                 <div class="d-flex align-items-center">
                                     <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>

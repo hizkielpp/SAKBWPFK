@@ -1,40 +1,39 @@
 /* Hero */
 .beranda .hero {
-    height: calc(100vh - 76px);
+    height: 100vh;
+    max-height: calc(100vh - 76px);
+    background-color: var(--green);
+}
+
+.beranda .hero .body {
+    width: 90%;
+}
+
+.beranda .hero .content {
+    width: fit-content;
+}
+
+.beranda .hero h1 {
+    font-size: 24px;
+    line-height: 2rem;
+}
+
+.beranda .hero svg {
+    font-size: 28px !important;
+}
+
+.beranda .second__image {
     width: 100%;
-    top: 0;
 }
 
-.beranda .hero img {
-    height: 100%;
-    object-fit: cover;
-}
-
-.beranda .hero div {
-    z-index: 2;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: min-content;
-}
-
-.beranda .hero a {
-    width: unset;
-}
-
-.beranda .card {
-    background-color: white;
-    border: 1px solid var(--green);
-    box-shadow: rgba(0, 0, 0, 0.40) 0px 5px 15px;
+.beranda .second__image img {
+    max-height: 230px;
+    object-fit: contain;
 }
 
 /* End hero */
 
 /* Layanan */
-.layanan {
-    margin-top: 7rem;
-}
-
 .layanan>div:first-child {
     width: fit-content;
 }
@@ -45,7 +44,6 @@
 /* Mobile */
 @media only screen and (min-width: 576px) {
 
-    .beranda .hero .card,
     .layanan {
         width: 75%;
     }
@@ -59,13 +57,41 @@
         border-color: var(--green);
     }
 
-    .beranda .hero .card,
     .layanan {
-        width: 50%;
+        width: 60%;
+    }
+}
+
+/* Large */
+@media only screen and (min-width: 992px) {
+    .beranda .hero {
+        display: flex !important;
+    }
+
+    .beranda .body,
+    .beranda .image {
+        width: 50% !important;
+    }
+
+    .beranda .body .second__image {
+        display: none;
+    }
+
+    .beranda .content {
+        padding-left: 27%;
+    }
+
+    .beranda .hero h1 {
+        font-size: 40px;
+        line-height: 3.5rem;
+    }
+
+    .beranda .hero .image {
+        display: block !important;
     }
 
     .layanan {
-        margin-top: 8.5rem;
+        width: 50%;
     }
 }
 

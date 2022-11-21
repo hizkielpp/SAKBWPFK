@@ -59,9 +59,133 @@ label {
     width: 90%;
 }
 
+.dropify__wrapper {
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%23788880FF' stroke-width='2' stroke-dasharray='10' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+    border-radius: 10px;
+    padding: .25rem;
+}
+
+.mt1 {
+    margin-top: 2rem;
+}
+
 .mt2 {
     margin-top: 2.5rem;
 }
+
+.dropify {
+    border-radius: 10px !important;
+}
+
+/* Color */
+.green {
+    color: var(--green);
+}
+
+.black {
+    color: var(--black);
+}
+
+.grey {
+    color: var(--grey);
+}
+
+.light {
+    color: var(--light);
+}
+
+/* End color */
+
+/* Font weight */
+.fwlight {
+    font-weight: 300;
+}
+
+.fwnormal {
+    font-weight: 400;
+}
+
+.fwsemi {
+    font-weight: 600;
+}
+
+/* End font weight */
+
+/* Card */
+.main__card {
+    background-color: white;
+    border: 1px solid var(--green);
+    border-radius: 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.30) 0px 5px 15px; */
+}
+
+/* End card */
+
+.bggreen {
+    background-color: var(--green);
+}
+
+/* Button */
+.btn__white {
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    color: var(--green);
+    font-weight: 800;
+    display: inline-block;
+}
+
+.btn__white:hover {
+    color: var(--dark-green);
+    background-color: #E1E1E1;
+    transition: .3s;
+    box-shadow: rgb(0, 0, 0, .5) 0px 4px 8px;
+}
+
+.btn__green {
+    background-color: white;
+    border: 1px solid white;
+    color: var(--black);
+    font-weight: bold;
+}
+
+.btn__green:hover {
+    background-color: white;
+    color: var(--black);
+    box-shadow: rgb(3, 115, 60, .5) 0px 4px 8px;
+    border-color: var(--green);
+}
+
+.btn__green2 {
+    background-color: var(--green);
+    border-color: var(--dark-green);
+}
+
+.btn__green2:hover {
+    background-color: var(--dark-green);
+    border-color: var(--dark-green);
+    box-shadow: rgb(3, 115, 60, .5) 0px 4px 8px;
+}
+
+.btn__green2:active {
+    background-color: var(--dark-green) !important;
+    border: none;
+}
+
+.btn__green2:focus-visible {
+    background-color: var(--dark-green);
+    box-shadow: none;
+    border: none;
+}
+
+.btn__delete {
+    color: #DC3545;
+    border: none;
+}
+
+/* End button */
 
 /* Table */
 .table__container {
@@ -150,78 +274,11 @@ div.table-responsive>div.dataTables_wrapper>div.row:last-child>div:last-child ul
 
 /* End table */
 
-/* Color */
-.green {
-    color: var(--green);
-}
-
-.black {
-    color: var(--black);
-}
-
-.grey {
-    color: var(--grey);
-}
-
-.light {
-    color: var(--light);
-}
-
-/* End color */
-
-/* Font weight */
-.fwlight {
-    font-weight: 300;
-}
-
-.fwnormal {
-    font-weight: 400;
-}
-
-.fwsemi {
-    font-weight: 600;
-}
-
-/* End font weight */
-
-.bggreen {
-    background-color: var(--green);
-}
-
-/* Button */
-.btn__green {
-    background-color: white;
-    border: 1px solid white;
-    color: var(--black);
-    font-weight: bold;
-}
-
-.btn__green:hover {
-    background-color: white;
-    color: var(--black);
-    box-shadow: rgb(3, 115, 60, .5) 0px 4px 8px;
-    border-color: var(--green);
-}
-
-.btn__green2 {
-    background-color: var(--green);
-    border-color: var(--dark-green);
-}
-
-.btn__green2:hover {
-    background-color: var(--dark-green);
-    border-color: var(--dark-green);
-    box-shadow: rgb(3, 115, 60, .5) 0px 4px 8px;
-}
-
-.btn__delete {
-    color: #DC3545;
-    border: none;
-}
-
-/* End button */
-
 /* Form */
+form input {
+    border-color: var(--grey) !important;
+}
+
 form input:focus {
     box-shadow: none !important;
     border: 1px solid var(--green) !important;
@@ -244,6 +301,10 @@ nav .nav-item a {
 }
 
 nav .nav-item a:hover {
+    color: white;
+}
+
+nav .nav-item a:focus {
     color: white;
 }
 
@@ -270,6 +331,10 @@ nav button path {
     color: white;
 }
 
+.navback a:hover {
+    color: var(--green);
+}
+
 /* End navbar */
 
 /* Header */
@@ -285,6 +350,7 @@ nav button path {
 footer {
     position: sticky;
     top: 100%;
+    margin-top: 6rem;
 }
 
 /* End footer */
@@ -334,6 +400,10 @@ footer {
 
     .wx {
         width: 60%;
+    }
+
+    .mt1 {
+        margin-top: 3rem;
     }
 
     div.table-responsive>div.dataTables_wrapper>div.row:first-child>div:first-child {
