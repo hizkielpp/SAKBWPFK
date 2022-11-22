@@ -62,7 +62,8 @@ Route::prefix('/index',function (Request $request){
 Route::get('/index-admin', function(Request $request){
     return view('admin.index');
 });
-Route::get('laporan-kegiatan-json',[ReportController::class,'getJson'])->name('getJson');
-Route::get('oke',[ReportController::class,'store']);
-
+Route::get('/laporan-kegiatan-json',[ReportController::class,'getJson'])->name('getJson');
+Route::get('/prodi', function(Request $request){
+    return view('admin.prodi');
+});
 
