@@ -50,10 +50,10 @@
                 </ul>
                 <div class="dropdown">
                     <button class="dropdown-toggle px-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-user me-2"></i>giziklinis@gmail.com
+                        <i class="fa-solid fa-user me-2"></i>{{ $email }}
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">
+                        <li><a class="dropdown-item" href="{{ route('signout') }}">
                                 <div class="d-flex align-items-center">
                                     <i class="fa-solid fa-right-to-bracket me-2"></i>
                                     <h6>Keluar</h6>

@@ -22,9 +22,14 @@ class AuthController extends Controller
         ]);
         $credentials=$request->only('email','password');
         if(Auth::attempt($credentials)){
-            return redirect()->intended('dashboard')->with('Signed in');
+            if(Auth::user()->role==1){
+                $email = Auth::user()->email;
+                return redirect()->route('beranda', compact('email'))->with('success','Signed in');
+            }else{
+                return redirect('login')->with('success','Admin unable to log in');  
+            }
         }
-        return redirect('login')->withSuccess('Login details are not valid');
+        return redirect('login')->with('Login details are not valid');
     }
     public function registration(){
         return view('auth.registration');

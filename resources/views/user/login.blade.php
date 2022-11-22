@@ -35,7 +35,7 @@
                     <h5 class="light mt-2">Silahkan masuk dengan akun sesuai
                         prodi masing -masing</h5>
                 </div>
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('login.custom') }}">
                     @csrf
                     <div class="mb-3 mt-4">
                         <label for="email" class="form-label text-white">Email</label>

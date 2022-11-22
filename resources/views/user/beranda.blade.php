@@ -25,7 +25,7 @@
                             </h4>
                         </div>
                     </div>
-                    <a href="/upload-kegiatan" class="btn__white mt-5">Upload Kegiatan</a>
+                    <a href="{{ route('upload-kegiatan') }}" class="btn__white mt-5">Upload Kegiatan</a>
                 </div>
             </div>
             <div class="image d-none m-auto px-5">

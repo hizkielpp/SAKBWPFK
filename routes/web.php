@@ -19,12 +19,11 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('login', [AuthController::class, 'index'])->name('login');
-// Route::get('login2', [AuthController::class, 'index2'])->name('login2');
-// Route::post('custom-login', [AuthController::class, 'customLogin'])->name('login.custom'); 
-// Route::get('registration', [AuthController::class, 'registration'])->name('register-user');
-// Route::post('custom-registration', [AuthController::class, 'customRegistration'])->name('register.custom'); 
-// Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('custom-login', [AuthController::class, 'customLogin'])->name('login.custom'); 
+Route::get('registration', [AuthController::class, 'registration'])->name('register-user');
+Route::post('custom-registration', [AuthController::class, 'customRegistration'])->name('register.custom'); 
+Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 //dengan middleware user
 // Route::prefix('/')->middleware('checkAuth')->group(function(){
 //     Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard'); 
@@ -43,21 +42,27 @@ use Illuminate\Http\Request;
 // });
 //Untuk baca file yang ada di direktori user
 Route::get('/beranda', function (Request $request) {
-    return view('user.beranda');
-});
+    return view('user.beranda',['email'=>$request->input('email'),]);
+})->name('beranda');
 Route::get('/informasi', function (Request $request) {
     return view('user.informasi');
 });
-Route::get('/laporan-kegiatan', function (Request $request) {
-    return view('user.laporan-kegiatan');
-});
+Route::get('/upload-kegiatan',[ReportController::class,'uploadKegiatan'])->name('upload-kegiatan');
+// Route::get('/laporan-kegiatan', function (Request $request) {
+//     return view('user.laporan-kegiatan');
+// });
+Route::post('/store-kegiatan',[ReportController::class,'store'])->name('storeKegiatan');
+Route::get('/laporan-kegiatan',[ReportController::class,'indexDatatable'])->name('indexDatatable');
 Route::get('/login', function (Request $request) {
     return view('user.login');
 });
-Route::get('/upload-kegiatan', function(Request $request){
-    return view('user.upload-kegiatan');
+Route::prefix('/index',function (Request $request){
+    return view('user.login');
 });
 Route::get('/index-admin', function(Request $request){
     return view('admin.index');
 });
+Route::get('laporan-kegiatan-json',[ReportController::class,'getJson'])->name('getJson');
+Route::get('oke',[ReportController::class,'store']);
+
 

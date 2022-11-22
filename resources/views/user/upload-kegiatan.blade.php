@@ -1,6 +1,7 @@
 @extends('/user/template-user')
 
 @section('content')
+
     {{-- Dropify --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
         integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
@@ -13,6 +14,14 @@
     <link rel="stylesheet" href="{{ asset('css/informasi-style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/upload-kegiatan-style.css') }}">
 
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+    @endif
+    @error('file')
+    <span class="text-danger">{{ $message }}</span>
+    @enderror
     <div class="upload__kegiatan wx mx-auto mt2">
         <div class="navback d-flex flex-wrap align-items-center mb-3">
             <a href="/laporan-kegiatan" class="text-decoration-none grey"><i
@@ -59,15 +68,17 @@
                     </div>
                 </div>
                 <div class="mt-3">
-                    <form>
+                    <form method="POST" action="{{ route('storeKegiatan') }}" enctype="multipart/form-data">
+                        @csrf
+
                         <div class="mb-3">
-                            <label for="judul" class="form-label">Judul Laporan Kegiatan</label>
-                            <input type="text" class="form-control" id="judul" aria-describedby="judul">
+                            <label  for="judul" class="form-label">Judul Laporan Kegiatan</label>
+                            <input name="name" type="text" class="form-control" id="judul" aria-describedby="judul">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Upload File</label>
                             <div class="dropify__wrapper">
-                                <input type="file" class="dropify" data-default-file="url_of_your_file"
+                                <input name="file" type="file" class="dropify" data-default-file="url_of_your_file"
                                     data-max-file-size="1M" data-allowed-file-extensions="pdf" />
                             </div>
                         </div>
@@ -82,3 +93,4 @@
         $('.dropify').dropify();
     </script>
 @endsection
+

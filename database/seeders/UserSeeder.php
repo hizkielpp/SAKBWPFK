@@ -16,6 +16,13 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = new \App\Models\User([
+            "name" => "admin",
+            "password" => Hash::make("password"),
+            "email" => "admin@gmail.com",
+            "role" => 2
+        ]);
+        $user->save();
+        $user = new \App\Models\User([
             "name" => "farmasi",
             "password" => Hash::make("password"),
             "email" => "farmasi@gmail.com",

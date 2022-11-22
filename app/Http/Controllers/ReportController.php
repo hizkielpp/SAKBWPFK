@@ -8,9 +8,27 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
+use DataTables;
 
 class ReportController extends Controller
 {
+    public function uploadKegiatan(){
+        $email = Auth::user()->email;
+        return view('user.upload-kegiatan',[
+            'email' => $email,
+        ]);  
+    }
+    public function getJson(){
+        $report = Report::where('id_user',Auth::id())->get();
+        return $report->toJson();
+    }
+    public function indexDatatable(){
+        $email = Auth::user()->email;
+        return view('user.laporan-kegiatan',[
+            'reports' => Report::where('id_user',Auth::id())->get(),
+            'email' => $email,
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -55,8 +73,9 @@ class ReportController extends Controller
     public function store(Request $request)
     {
         //validate input
+        // dd($request->input('name'));
         $request->validate([
-            'name' => 'required',
+            'name' => 'required',   
             'file' => 'required|mimes:docx,pdf'
         ]);
         $userId = Auth::id();
@@ -65,12 +84,16 @@ class ReportController extends Controller
         $file=$request->file('file');
         $fileName = time().'.'.$file->getClientOriginalName();  
         $request->file->move(public_path('uploads'), $fileName);
-        Report::create([
-            'name'=>$name,
-            'file_name'=>$fileName,
-            'id_user'=>$userId]);
+        try{
+            Report::create([    
+                'name'=>$name,
+                'file_name'=>$fileName,
+                'id_user'=>$userId]);
+        }catch(\Exception $e){
+            return redirect()->route('indexDatatable')->with('success','User creation has failed');
+        }
         //redirect the user and send friendly message
-        return redirect()->route('reports.index')->with('success','User created successfully');
+        return redirect()->route('indexDatatable')->with('success','User created successfully');
     }
 
     /**
