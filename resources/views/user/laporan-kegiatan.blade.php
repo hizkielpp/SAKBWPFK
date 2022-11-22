@@ -22,7 +22,7 @@
                     Kegiatan</a>
             </div>
             <div class="table-responsive ">
-                <table id="laporanKegiatan" class="table tabledinamis">
+                <table id="laporanKegiatan" class="table">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -129,37 +129,13 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js">
     </script>
-    <script>
-        update=()=>{
-        $.getJSON('{{ route("getJson") }}', function(data) {
-                $("#laporanKegiatan").empty();
-                $("#laporanKegiatan").append("<thead><tr><th>No</th><th>Judul</th><th>Status</th><th>Urutan ke</th><th>Aksi</th></tr></thead>");
-                $('#laporanKegiatan').append('<tbody>')
-                // console.log(data.length);
-                for(x=0;x<data.length;x++){
-                    let Number = x+1;
-                    // console.log(data[x]);
-                    $("#laporanKegiatan").append("<tr><td>"+Number+"</td><td>"+data[x].name+"</td><td>"+data[x].status+"</td><td>"+data[x].id+"</td><td><div class='d-flex align-items-center'><a href=''><i class='fa-regular fa-pen-to-square me-1'></i></a><button type='button' class='btn__delete'><i class='fa-solid fa-trash'></i></button></div></td>");
-                }
-                $('#laporanKegiatan').append('</tbody>');
-                // for(const x of data) {
-                //     console.log(key);
-                    // let Number = 1+key
-                    // $("#laporanKegiatan").append("<tr><td>"+Number"</td>");
-                    // $("#laporanKegiatan").append("<td>"data[key].name"</td>");
-                    // $("#laporanKegiatan").append("<td>"data[key].status"</td>");
-                    // $("#laporanKegiatan").append("<td>"data[key].id"</td>");
-                    // $("#laporanKegiatan").append('<td><div class="d-flex align-items-center"><a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a><button type="button" class="btn__delete"><i class="fa-solid fa-trash"></i></button></div></td></tr>');
-                // }
-            })
-        }
-        setInterval(update,10000);
-    </script>
     
     {{-- Initializing data tables --}}
     <script>
         $(document).ready(function() {
             $('#laporanKegiatan').DataTable({
+                responsive: true,
+                destroy: true,
                 order: [
                     [3, 'asc']
                 ],

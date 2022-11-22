@@ -42,10 +42,10 @@ Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 // });
 //Untuk baca file yang ada di direktori user
 Route::get('/beranda', function (Request $request) {
-    return view('user.beranda',['email'=>$request->input('email'),]);
+    return view('user.beranda',['email'=>Auth::user()->email]);
 })->name('beranda');
 Route::get('/informasi', function (Request $request) {
-    return view('user.informasi');
+    return view('user.informasi',['email'=>Auth::user()->email]);
 });
 Route::get('/upload-kegiatan',[ReportController::class,'uploadKegiatan'])->name('upload-kegiatan');
 // Route::get('/laporan-kegiatan', function (Request $request) {
