@@ -1,0 +1,98 @@
+/* Sidebar */
+.admin .sidebar-brand {
+    border-bottom: 3px solid white;
+}
+
+.admin .nav-item span,
+.admin .nav-item i {
+    font-size: 16px !important;
+}
+
+.admin .nav-item a:hover {
+    background-color: white;
+}
+
+.admin .nav-item a:hover span,
+.admin .nav-item a:hover i {
+    color: var(--black) !important;
+}
+
+/* End sidebar */
+
+
+/* Topbar */
+.admin .topbar {
+    border-left: 3px solid white;
+}
+
+.admin .topbar button {
+    color: white;
+}
+
+.admin .topbar button:hover,
+.admin .topbar button:active {
+    color: var(--green);
+}
+
+.admin .topbar button:focus-visible {
+    box-shadow: none;
+}
+
+/* End topbar */
+
+/* Body */
+.wx2 {
+    width: 95%;
+}
+
+.card2 {
+    border: 1px solid;
+    border-radius: 10px;
+    min-height: 150px;
+}
+
+
+.bdblack {
+    border-color: var(--black);
+}
+
+.alert-secondary {
+    border-color: #788880 !important;
+}
+
+.alert-primary {
+    border-color: #98B6D7 !important;
+}
+
+.alert-warning {
+    border-color: #E1CE97 !important;
+}
+
+.alert-danger {
+    border-color: #D7A4A9 !important;
+}
+
+.alert-success {
+    border-color: #9CBDAE !important;
+}
+
+table th,
+table td {
+    color: var(--black);
+}
+
+.table-responsive label {
+    color: var(--black) !important;
+}
+
+/* End body */
+
+
+/* ================ Responsive ================ */
+
+/* Mobile */
+@media only screen and (min-width: 576px) {
+    .admin .topbar h6 {
+        display: block !important;
+    }
+}

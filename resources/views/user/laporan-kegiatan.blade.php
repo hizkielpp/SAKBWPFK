@@ -4,9 +4,9 @@
     {{-- Bootstrap data tables --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
     @if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <p>{{ $message }}</p>
-    </div>
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
     @endif
     <div class="laporan__kegiatan wx mx-auto mt2">
         <div class="d-flex header align-items-center justify-content-center mb-4">
@@ -28,7 +28,7 @@
                             <th>No</th>
                             <th>Judul</th>
                             <th>Status</th>
-                            <th>Urutan ke</th>
+                            <th class="urutan">Urutan ke</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -94,18 +94,19 @@
                             </td>
                         </tr> --}}
                         @foreach ($reports as $key => $report)
-                        <tr>
-                            <td>{{ $key+1 }}</td>
-                            <td>{{ $report->name }}</td>
-                            <td>{{ $report->status }}</td>
-                            <td>{{ $report->id }}</td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
-                                    <button type="button" class="btn__delete"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>    
+                            <tr>
+                                <td>{{ $key + 1 }}</td>
+                                <td>{{ $report->name }}</td>
+                                <td>{{ $report->status }}</td>
+                                <td class="urutan">{{ $report->id }}</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
+                                        <button type="button" class="btn__delete"><i
+                                                class="fa-solid fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
                         @endforeach
                         {{-- <tr>
                             <td>6</td>
@@ -129,7 +130,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js">
     </script>
-    
+
     {{-- Initializing data tables --}}
     <script>
         $(document).ready(function() {
@@ -158,5 +159,4 @@
             });
         });
     </script>
-
 @endsection

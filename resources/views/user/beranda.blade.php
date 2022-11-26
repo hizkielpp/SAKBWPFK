@@ -9,17 +9,17 @@
         <div class="hero d-block pt-lg-0 pt-3">
             <div class="body m-auto">
                 <div class="content mx-auto">
-                    <h1 class="text-white mb-4 fw-bold">Upload Laporan Kegiatan Program Studi dengan <br> Mudah</h1>
+                    <h1 class="text-white mb-4 fw-bold">Upload Laporan Kegiatan Program Studi dengan Mudah</h1>
                     <div class="second__image my-3">
                         <img src="/image/hero-image-rev.png" alt="Gambar Hero" width="100%">
                     </div>
                     <div class="mt-2 text-white">
-                        <div class="d-flex align-items-center mb-3">
+                        <div class="d-flex align-items-start mb-3">
                             <i class="fa-solid fa-circle-check me-2"></i>
                             <h4>Upload laporan kegiatan masing - masing program studi
                             </h4>
                         </div>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-start">
                             <i class="fa-solid fa-circle-check me-2"></i>
                             <h4>Pantau perkembangan pembuatan konten website
                             </h4>
