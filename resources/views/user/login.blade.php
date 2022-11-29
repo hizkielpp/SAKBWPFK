@@ -47,10 +47,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label text-white">Kata Sandi</label>
-                        <input type="password" class="form-control" id="password" name="password">
-                        @if ($errors->has('password'))
-                            <span class="text-danger">{{ $errors->first('password') }}</span>
-                        @endif
+                        <div class="position-relative">
+                            <input type="password" class="form-control" id="password" name="password">
+                            @if ($errors->has('password'))
+                                <span class="text-danger">{{ $errors->first('password') }}</span>
+                            @endif
+                            <div class="eye-icon position-absolute" onclick="showPass()">
+                                <i class="fa-solid fa-eye" id="eye"></i>
+                            </div>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary w-100 btn__green mt-4">Masuk</button>
                 </form>
@@ -82,6 +87,27 @@
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+    </script>
+
+    {{-- Fontawesome --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+        integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    {{-- Show/hide password --}}
+    <script>
+        var state = false;
+        const input = document.getElementById("password");
+
+        function showPass() {
+            if (state) {
+                input.setAttribute("type", "password");
+                state = false;
+            } else {
+                input.setAttribute("type", "text");
+                state = true;
+            }
+        }
     </script>
 </body>
 

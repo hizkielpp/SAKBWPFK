@@ -21,6 +21,14 @@
     border-color: white !important;
 }
 
+.login .eye-icon {
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--light);
+}
+
 .login .image {
     background-color: var(--green);
 }
@@ -90,6 +98,10 @@
 
     .login .title h4 {
         color: var(--black) !important;
+    }
+
+    .login .eye-icon {
+        color: var(--black);
     }
 
     .login>div:last-child {
