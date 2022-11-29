@@ -66,4 +66,7 @@ Route::get('/laporan-kegiatan-json',[ReportController::class,'getJson'])->name('
 Route::get('/prodi', function(Request $request){
     return view('admin.prodi');
 });
+Route::get('/log',function(Request $request){
+    return view('admin.log');
+});
 
