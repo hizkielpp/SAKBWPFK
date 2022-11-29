@@ -69,4 +69,7 @@ Route::get('/prodi', function(Request $request){
 Route::get('/log',function(Request $request){
     return view('admin.log');
 });
+Route::get('/informasi',function(Request $request){
+    return view('admin.informasi');
+});
 
