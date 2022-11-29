@@ -74,14 +74,14 @@
             </li>
             <!-- Nav Item - category -->
             <li class="nav-item {{ Request::is('admin/category*') ? 'active' : '' }}">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="/admin-informasi">
                     <i class="fa-solid fa-circle-info"></i>
                     <span>Informasi</span>
                 </a>
             </li>
             <!-- Nav Item - product -->
             <li class="nav-item {{ Request::is('admin/product*') ? 'active' : '' }}">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="/log">
                     <i class="fa-solid fa-clock"></i>
                     <span>Riwayat</span>
                 </a>

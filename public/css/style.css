@@ -144,6 +144,21 @@ label {
     box-shadow: rgb(0, 0, 0, .5) 0px 4px 8px;
 }
 
+.btn__white2 {
+    background-color: unset;
+    color: var(--black);
+    border-color: var(--black);
+}
+
+.btn__white2:hover {
+    border-color: var(--black) !important;
+}
+
+.btn__white2:focus {
+    box-shadow: none;
+    border-color: var(--black) !important;
+}
+
 .btn__green {
     background-color: white;
     border: 1px solid white;
@@ -164,14 +179,20 @@ label {
 }
 
 .btn__green2:hover {
-    background-color: var(--dark-green);
-    border-color: var(--dark-green);
-    box-shadow: rgb(3, 115, 60, .5) 0px 4px 8px;
+    background-color: var(--dark-green) !important;
+    border-color: var(--dark-green) !important;
+    box-shadow: rgb(3, 115, 60, .5) 0px 4px 8px !important;
 }
 
 .btn__green2:active {
     background-color: var(--dark-green) !important;
-    border: none;
+    border-color: var(--dark-green) !important;
+}
+
+.btn__green2:focus {
+    background-color: var(--dark-green) !important;
+    box-shadow: none !important;
+    border-color: var(--dark-green) !important;
 }
 
 .btn__green2:focus-visible {
@@ -196,6 +217,10 @@ label {
 
 thead tr th {
     font-weight: bold;
+}
+
+.column__kategori {
+    width: 25%;
 }
 
 /* Pagination */
@@ -287,6 +312,34 @@ form input:focus {
 }
 
 /* End form */
+
+/* Modal */
+.modal label {
+    color: var(--black);
+}
+
+.modal input,
+.modal textarea {
+    color: var(--black) !important;
+}
+
+.modal input,
+.modal select {
+    border-color: #ced4da !important;
+}
+
+.modal input:focus,
+.modal .form-select:focus,
+.modal textarea:focus {
+    border-color: var(--green) !important;
+    box-shadow: none;
+}
+
+.modal button {
+    font-size: 16px;
+}
+
+/* End modal */
 
 /* Navbar */
 nav {
