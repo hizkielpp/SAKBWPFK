@@ -24,26 +24,30 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
+                                    <form id="kategori-form" action="{{ route('kategori.store') }}" method="POST">
+                                    @csrf
                                         <div class="mb-3">
                                             <div class="mb-3">
                                                 <label for="kategori" class="form-label">Masukkan Kategori Baru</label>
-                                                <input type="text" class="form-control" id="kategori">
+                                                <input type="text" class="form-control" id="kategori" name="name">
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <button type="submit" form="kategori-form"class="btn btn-primary">Simpan</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                     <button type="button" class="btn btn-primary btn__green2" data-bs-toggle="modal"
                         data-bs-target="#tambahInformasi">
                         Tambah Informasi
                     </button>
+                    {{-- Modal Edit Informasi --}}
+                    
                     <!-- Modal informasi -->
                     <div class="modal fade" id="tambahInformasi" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
@@ -55,28 +59,31 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
+                                    <form id="form-information"method="POST" action="{{ route('information.store') }}">
+                                    @csrf
+
                                         <div class="mb-3">
                                             <div class="mb-3">
                                                 <label for="nomor" class="form-label">Nomor</label>
-                                                <input type="number" class="form-control" id="nomor">
+                                                <input type="number" class="form-control" id="nomor" name="nomor">
                                             </div>
                                             <label for="pilihKategori" class="form-label">Kategori</label>
-                                            <select class="form-select" aria-label="Default select example">
+                                            <select class="form-select" aria-label="Default select example" name="kategori">
                                                 <option selected>...</option>
-                                                <option value="1">Alur Upload Konten</option>
-                                                <option value="2">Tata Cara Upload Konten</option>
+                                                @foreach ($kategoris as $kategori)
+                                                <option value="{{ $kategori->name }}">{{ $kategori->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="mb-3">
                                             <label for="informasi" class="form-label">Masukkan Informasi Baru</label>
-                                            <textarea class="form-control" id="informasi" rows="3"></textarea>
+                                            <textarea class="form-control" id="informasi" rows="3" name="deskripsi"></textarea>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <button type="submit" form="form-information"class="btn btn-primary">Simpan</button>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +101,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($informations as $information)
                         <tr>
+                            <td>{{ $information->nomor }}</td>
+                            <td class="w-75">{{ $information->deskripsi }}</td>
+                            <td class="column__kategori">{{ $information->kategori }}</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    {{-- <a href="{{ route('information.edit',['id'=> $information->id]) }}"><i class="fa-regular fa-pen-to-square me-1"></i></a> --}}
+                                    <a onclick="return confirm('Apakah yakin informasi akan dihapus?');" href="{{ route('information.delete',['id'=> $information->id]) }}"><button type="button" class="btn__delete"><i class="fa-solid fa-trash"></i></button></a>
+                                </div>
+                            </td>
+                        </tr>                            
+                        @endforeach
+                        {{-- <tr>
                             <td>1</td>
                             <td class="w-75">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil doloribus
                                 beatae sed vero,
@@ -107,49 +127,7 @@
                                     <button type="button" class="btn__delete"><i class="fa-solid fa-trash"></i></button>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td class="w-75">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil doloribus
-                                beatae sed vero,
-                                quo nemo sapiente totam saepe. Voluptatem accusantium voluptatibus velit. Rerum, harum
-                                architecto! Sapiente, vel eum! Quibusdam, nobis!</td>
-                            <td class="column__kategori">Tata Cara Upload Konten</td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
-                                    <button type="button" class="btn__delete"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td class="w-75">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil doloribus
-                                beatae sed vero,
-                                quo nemo sapiente totam saepe. Voluptatem accusantium voluptatibus velit. Rerum, harum
-                                architecto! Sapiente, vel eum! Quibusdam, nobis!</td>
-                            <td class="column__kategori">Alur Upload Konten</td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
-                                    <button type="button" class="btn__delete"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td class="w-75">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil doloribus
-                                beatae sed vero,
-                                quo nemo sapiente totam saepe. Voluptatem accusantium voluptatibus velit. Rerum, harum
-                                architecto! Sapiente, vel eum! Quibusdam, nobis!</td>
-                            <td class="column__kategori">Alur Upload Konten</td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
-                                    <button type="button" class="btn__delete"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
+                        </tr> --}}
                     </tbody>
                 </table>
             </div>

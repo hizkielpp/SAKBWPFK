@@ -50,8 +50,20 @@ class ReportController extends Controller
      */
     public function indexAdmin()
     {
-        $reports = Report::where('status','!=','sudah diposting')->where('status','!=','ditolak')->orderBy('updated_at','desc')->paginate(10);
-        return view('reports.indexAdmin', compact('reports'))->with(request()->input('page'));
+        $reports = Report::where('status','=','terupload')->orderBy('created_at','desc')->get();
+        $countTerupload = $reports->count();
+        $countDiproses = Report::where('status','=','diproses')->count();
+        $countValidasi = Report::where('status','=','validasi supervisor')->count();
+        $countDitolak = Report::where('status','=','ditolak')->count();
+        $countDiposting = Report::where('status','=','sudah diposting')->count();
+        return view('admin.index', compact('reports','countTerupload','countDiproses','countValidasi','countDitolak','countDiposting'));
+
+    }
+    public function prodi()
+    {
+        $reports = Report::where('status','!=','sudah diposting')->where('status','!=','ditolak')->orderBy('updated_at','desc')->get();
+        // return view('reports.indexAdmin', compact('reports'))->with(request()->input('page'));
+        return view('admin.prodi', compact('reports'));
     }
 
     /**
@@ -90,10 +102,17 @@ class ReportController extends Controller
                 'file_name'=>$fileName,
                 'id_user'=>$userId]);
         }catch(\Exception $e){
-            return redirect()->route('indexDatatable')->with('success','User creation has failed');
+            return redirect()->route('indexDatatable')->with('failed','Bahan berita gagal diupload');
         }
+        Log::create([
+            'id_user'=>Auth::id(),
+            'name'=>$name,
+            // 'pre'=>'terupload',
+            // 'post'=>'diproses',
+            'keterangan'=>'user mengupload bahan berita'
+        ]);
         //redirect the user and send friendly message
-        return redirect()->route('indexDatatable')->with('success','User created successfully');
+        return redirect()->route('indexDatatable')->with('success','Bahan berita berhasil diupload');
     }
 
     /**
@@ -125,8 +144,8 @@ class ReportController extends Controller
                 Log::create([
                     'id_user'=>Auth::id(),
                     'name'=>$report->name,
-                    'pre'=>'terupload',
-                    'post'=>'diproses',
+                    // 'pre'=>'terupload',
+                    // 'post'=>'diproses',
                     'keterangan'=>'terupload ke diproses'
                 ]);
                 return back()->with('success','berita telah berganti status menjadi diproses');           
@@ -136,8 +155,8 @@ class ReportController extends Controller
                 Log::create([
                     'id_user'=>Auth::id(),
                     'name'=>$report->name,
-                    'pre'=>'terupload',
-                    'post'=>'ditolak',
+                    // 'pre'=>'terupload',
+                    // 'post'=>'ditolak',
                     'keterangan'=>'terupload ke ditolak'
                 ]);
                 return back()->with('success','berita telah berganti status menjadi ditolak');
@@ -147,8 +166,8 @@ class ReportController extends Controller
                 Log::create([
                     'id_user'=>Auth::id(),
                     'name'=>$report->name,
-                    'pre'=>'diproses',
-                    'post'=>'validasi supervisor',
+                    // 'pre'=>'diproses',
+                    // 'post'=>'validasi supervisor',
                     'keterangan'=>'diproses ke validasi supervisor'
                 ]);
                 return back()->with('success','berita telah berganti status menjadi validasi supervisor');
@@ -158,8 +177,8 @@ class ReportController extends Controller
                 Log::create([
                     'id_user'=>Auth::id(),
                     'name'=>$report->name,
-                    'pre'=>'validasi supervisor',
-                    'post'=>'sudah diposting',
+                    // 'pre'=>'validasi supervisor',
+                    // 'post'=>'sudah diposting',
                     'keterangan'=>'validasi supervisor ke sudah diposting'
                 ]);
                 return back()->with('success','berita telah berganti status menjadi sudah diposting');

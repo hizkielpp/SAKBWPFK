@@ -29,7 +29,7 @@
     </tr>
     @foreach ($reports as $report)
     <tr>
-        {{-- <td>{{ $report->id }}</td> --}}
+        <td>{{ $report->id }}</td>
         <td>{{ $report->name }}</td>
         <td>{{ $report->status }}</td>
         <td><a href="{{ route('report.download',$report->id) }}" class=""btn btn-info"">Download</a></td>

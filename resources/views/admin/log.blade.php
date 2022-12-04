@@ -19,26 +19,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($logs as $log)
                         <tr>
+                            <td>{{ $log->keterangan }}</td>
+                            <td>{{ $log->name }}</td>
+                            <td>{{ date('D, d M Y H:i:s ', strtotime($log->created_at)); }}</td>
+                        </tr>
+                        @endforeach
+                        {{-- <tr>
                             <td>Konten terupload</td>
                             <td>Laporan kegiatan vaksin gratis program studi kedokteran</td>
                             <td>Senin, 10 November 2022 13:45:00</td>
-                        </tr>
-                        <tr>
-                            <td>Konten terupload menjadi diproses</td>
-                            <td>Laporan kegiatan vaksin gratis program studi kedokteran</td>
-                            <td>Selasa, 11 November 2022 10:15:00</td>
-                        </tr>
-                        <tr>
-                            <td>Konten diproses menjadi validasi supervisor</td>
-                            <td>Laporan kegiatan vaksin gratis program studi kedokteran</td>
-                            <td>Rabu, 12 November 2022 12:39:00</td>
-                        </tr>
-                        <tr>
-                            <td>Konten validasi supervisor menjadi diposting</td>
-                            <td>Laporan kegiatan vaksin gratis program studi kedokteran</td>
-                            <td>Rabu, 13 November 2022 15:25:00</td>
-                        </tr>
+                        </tr> --}}
                     </tbody>
                 </table>
             </div>

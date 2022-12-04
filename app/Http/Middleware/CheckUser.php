@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
-class CheckAdmin
+class CheckUser
 {
     /**
      * Handle an incoming request.
@@ -19,10 +19,10 @@ class CheckAdmin
     public function handle(Request $request, Closure $next)
     {
         if(Auth::user()){
-            if(Auth::user()->role == 2){
+            if(Auth::user()->role == 1){
                 return $next($request);
             }else{
-                return back()->with('failed','Kamu tidak diperboleh untuk mengakses');
+                return back()->with('Admin tidak diperbolehkan mengakses');
             }
         }return redirect()->route('login')->with('failed','Silahkan login terlebih dahulu');
 

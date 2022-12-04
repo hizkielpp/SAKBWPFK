@@ -30,5 +30,36 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => $faker->dateTimeInInterval('-1 week')
             ]);
         }
+        DB::table('kategoris')->insert([
+            'name' => 'Alur Upload Konten'
+        ]);
+        DB::table('kategoris')->insert([
+            'name' => 'Tata Cara Upload Konten'
+        ]);
+        DB::table('informations')->insert([
+            'nomor' => 1,
+            'kategori' => "Alur Pembuatan Konten",
+            'deskripsi'=> "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quibusdam minima rerum, ad quod temporibus ducimus ullam adipisci molestias similique amet dolorum omnis officia, corrupti optio id dolorem? Tenetur, adipisci!"
+        ]);
+        DB::table('informations')->insert([
+            'nomor' => 2,
+            'kategori' => "Alur Pembuatan Konten",
+            'deskripsi'=> "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quibusdam minima rerum, ad quod temporibus ducimus ullam adipisci molestias similique amet dolorum omnis officia, corrupti optio id dolorem? Tenetur, adipisci!"
+        ]);
+        DB::table('informations')->insert([
+            'nomor' => 3,
+            'kategori' => "Alur Pembuatan Konten",
+            'deskripsi'=> "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quibusdam minima rerum, ad quod temporibus ducimus ullam adipisci molestias similique amet dolorum omnis officia, corrupti optio id dolorem? Tenetur, adipisci!"
+        ]);
+        DB::table('informations')->insert([
+            'nomor' => 1,
+            'kategori' => "Tata Cara Upload Konten",
+            'deskripsi'=> "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quibusdam minima rerum, ad quod temporibus ducimus ullam adipisci molestias similique amet dolorum omnis officia, corrupti optio id dolorem? Tenetur, adipisci!"
+        ]);
+        DB::table('informations')->insert([
+            'nomor' => 2,
+            'kategori' => "Tata Cara Upload Konten",
+            'deskripsi'=> "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quibusdam minima rerum, ad quod temporibus ducimus ullam adipisci molestias similique amet dolorum omnis officia, corrupti optio id dolorem? Tenetur, adipisci!"
+        ]);
     }
 }

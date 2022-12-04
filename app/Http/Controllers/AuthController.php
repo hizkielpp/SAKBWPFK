@@ -12,9 +12,6 @@ class AuthController extends Controller
     public function index(){
         return view('auth.login2');
     }
-    public function index2(){
-        return view('auth.login2');
-    }
     public function customLogin(Request $request){
         $request->validate([
             'email'=>'required',
@@ -26,7 +23,8 @@ class AuthController extends Controller
                 $email = Auth::user()->email;
                 return redirect()->route('beranda', compact('email'))->with('success','Signed in');
             }else{
-                return redirect('login')->with('success','Admin unable to log in');  
+                $email = Auth::user()->email;
+                return redirect()->route('admin.index')->with('success','Signed in');  
             }
         }
         return redirect('login')->with('Login details are not valid');

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('name');
-            $table->enum('pre',['terupload','diproses','ditolak','validasi supervisor','sudah diposting']);
-            $table->enum('post',['teruopload','diproses','ditolak','validasi supervisor','sudah diposting']);
+            // $table->enum('pre',['terupload','diproses','ditolak','validasi supervisor','sudah diposting']);
+            // $table->enum('post',['teruopload','diproses','ditolak','validasi supervisor','sudah diposting']);
             $table->string('keterangan');
             $table->timestamps();
         });

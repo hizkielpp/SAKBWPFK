@@ -20,7 +20,7 @@ class CheckAuth
         if(Auth::check()){
             return $next($request);
         }
-        return redirect('login')->withSuccess('You are not allowed to access');
+        return redirect('login')->with('failed','Silahkan login terlebih dahulu');
         
     }
 }

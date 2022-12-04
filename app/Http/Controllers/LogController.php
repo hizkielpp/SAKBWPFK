@@ -1,23 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Datatables\LogDataTable;
 use Illuminate\Http\Request;
-use App\Models\Report;
+use App\Models\Log;
 
 class LogController extends Controller
 {
-    public function __construct()
+    public function log()
     {
-            $this->middleware('checkAdmin');
+        $logs = Log::select('*')->orderBy('created_at','desc')->get();
+        // return view('reports.indexAdmin', compact('reports'))->with(request()->input('page'));
+        return view('admin.log', compact('logs'));
     }
-    /**
-     * Display a listing of the resource.
-     * @return \Illuminate\Http\Response
-     */
-    public function index(LogDataTable $dataTable)
-    {   
-        return $dataTable->render('reports.indexLog');
-    }
+
 }

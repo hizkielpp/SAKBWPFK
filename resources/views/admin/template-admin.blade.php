@@ -88,7 +88,7 @@
             </li>
             <!-- Nav Item - logout -->
             <li class="nav-item">
-                <form action="/logout" method="post" class="">
+                <form action="{{ route('signout') }}" method="get" class="">
                     @csrf
                     <button type="submit" class="btn nav-link"><i class="fa-sharp fa-solid fa-right-from-bracket"></i>
                         <span>Keluar</span></button>
@@ -125,6 +125,16 @@
                 <!-- End of Topbar -->
 
                 <!-- content -->
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
+                @endif
+                @if ($message = Session::get('failed'))
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
+                @endif
                 @yield('content')
                 <!-- end of content -->
 

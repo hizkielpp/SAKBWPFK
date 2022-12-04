@@ -21,6 +21,11 @@
             <p>{{ $message }}</p>
         </div>
     @endif
+    @if ($message = Session::get('failed'))
+    <div class="alert alert-danger">
+        <p>{{ $message }}</p>
+    </div>
+    @endif
     <div class="login">
         <div class="content d-flex justify-content-center align-items-center">
             <div class="container px-4 px-sm-3 px-md-5">
