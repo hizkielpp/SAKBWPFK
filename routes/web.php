@@ -49,6 +49,9 @@ Route::fallback(function () {
 }); 
 
 //Autentikasi
+Route::get('/', function(Request $request){
+    return view('user.login'); 
+});
 Route::get('/login', function (Request $request) {
     return view('user.login');
 })->name('login');

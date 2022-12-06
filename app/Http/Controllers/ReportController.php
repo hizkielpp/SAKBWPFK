@@ -61,7 +61,7 @@ class ReportController extends Controller
     }
     public function prodi()
     {
-        $reports = Report::where('status','!=','sudah diposting')->where('status','!=','ditolak')->orderBy('updated_at','desc')->get();
+        $reports = Report::with('user')->where('status','!=','sudah diposting')->where('status','!=','ditolak')->orderBy('updated_at','desc')->get();
         // return view('reports.indexAdmin', compact('reports'))->with(request()->input('page'));
         return view('admin.prodi', compact('reports'));
     }
