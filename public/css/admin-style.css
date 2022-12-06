@@ -56,6 +56,10 @@
     border-color: var(--black);
 }
 
+.alert {
+    padding: .5rem .75rem;
+}
+
 .alert-secondary {
     border-color: #788880 !important;
 }
@@ -68,12 +72,24 @@
     border-color: #E1CE97 !important;
 }
 
+.alert-warning:hover {
+    color: #66511a !important;
+}
+
 .alert-danger {
     border-color: #D7A4A9 !important;
 }
 
+.alert-danger:hover {
+    color: #60201a;
+}
+
 .alert-success {
     border-color: #9CBDAE !important;
+}
+
+.alert-success:hover {
+    color: #0b4d35 !important;
 }
 
 table th,

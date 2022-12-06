@@ -1,42 +1,34 @@
 @extends('/admin/template-admin')
 
 @section('content')
-    <div class="wx2 mx-auto">
-        <h4 class="black fw-bold mb-2">Riwayat</h4>
-        <!-- Button trigger modal -->
+    <h4 class="black fw-bold mb-3">Riwayat</h4>
 
-        <div class="table__container">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="fw-bold green">Daftar Riwayat Perubahan</h5>
-            </div>
-            <div class="table-responsive">
-                <table id="dashboard" class="table">
-                    <thead>
-                        <tr>
-                            <th>Keterangan</th>
-                            <th>Judul Laporan</th>
-                            <th>Waktu</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($logs as $log)
-                        <tr>
-                            <td>{{ $log->keterangan }}</td>
-                            <td>{{ $log->name }}</td>
-                            <td>{{ date('D, d M Y H:i:s ', strtotime($log->created_at)); }}</td>
-                        </tr>
-                        @endforeach
-                        {{-- <tr>
-                            <td>Konten terupload</td>
-                            <td>Laporan kegiatan vaksin gratis program studi kedokteran</td>
-                            <td>Senin, 10 November 2022 13:45:00</td>
-                        </tr> --}}
-                    </tbody>
-                </table>
-            </div>
+    <div class="table__container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold green">Daftar Riwayat Perubahan</h5>
         </div>
-
+        <div class="table-responsive">
+            <table id="dashboard" class="table">
+                <thead>
+                    <tr>
+                        <th>Keterangan</th>
+                        <th>Judul Laporan</th>
+                        <th>Waktu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($logs as $log)
+                        <tr>
+                            <td>{{ ucfirst($log->keterangan) }}</td>
+                            <td>{{ $log->name }}</td>
+                            <td>{{ date('D, d F Y H:i:s ', strtotime($log->created_at)) }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
+
     {{-- Initializing data tables --}}
     <script>
         $(document).ready(function() {
