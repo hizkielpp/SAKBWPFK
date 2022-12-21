@@ -156,6 +156,7 @@ a:hover {
 
 .btn__white2:hover {
     border-color: var(--black) !important;
+    background-color: #DDDDDD !important;
 }
 
 .btn__white2:focus {
@@ -342,6 +343,26 @@ div.table-responsive>div.dataTables_wrapper>div.row:last-child>div:last-child ul
 
 /* End reakpoint show and search */
 
+table tr td>.d-flex a {
+    margin-bottom: 0;
+}
+
+table .alert {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.table-responsive .form-control:focus {
+    box-shadow: none;
+    border-color: var(--dark-green);
+    color: var(--dark-green);
+}
+
+.form-select:focus {
+    border-color: var(--dark-green);
+    box-shadow: none;
+}
+
 
 /* End table */
 
@@ -432,6 +453,11 @@ nav button path {
 
 .navback a:hover {
     color: var(--green);
+}
+
+.dropdown-menu[data-bs-popper] {
+    right: 0;
+    left: unset;
 }
 
 /* End navbar */

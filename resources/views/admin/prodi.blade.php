@@ -28,10 +28,12 @@
 
                             @if ($report->status === 'terupload')
                                 <td>
-                                    <a class="alert alert-primary me-1"href="/reports/{{ $report->id }}/edit?edit=diproses"
-                                        onclick="return confirm('Apakah yakin akan diproses?');">Proses</a>
-                                    <a class="alert alert-danger"href="/reports/{{ $report->id }}/edit?edit=ditolak"
-                                        onclick="return confirm('Apakah yakin akan ditolak?');">Tolak</a>
+                                    <div class="d-flex">
+                                        <a class="alert alert-primary me-2"href="/reports/{{ $report->id }}/edit?edit=diproses"
+                                            onclick="return confirm('Apakah yakin akan diproses?');">Proses</a>
+                                        <a class="alert alert-danger"href="/reports/{{ $report->id }}/edit?edit=ditolak"
+                                            onclick="return confirm('Apakah yakin akan ditolak?');">Tolak</a>
+                                    </div>
                                 </td>
                             @elseif ($report->status === 'diproses')
                                 <td>

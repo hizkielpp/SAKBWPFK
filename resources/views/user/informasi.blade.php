@@ -13,6 +13,12 @@
         </div>
         <div class="mt-3">
             <h5 class="black fwsemi mb-2">Alur Pembuatan Konten</h5>
+            <div class="image-large">
+                <img src="/image/alur-large.png" alt="Alur Pembuatan Konten" width="100%">
+            </div>
+            <div class="image-small">
+                <img src="/image/alur-small.png" alt="Alur Pembuatan Konten" width="100%">
+            </div>
             @foreach ($informationAlurs as $informationAlur)
             <div class="d-flex align-items-start">
                 <div class="nomor d-flex align-items-center justify-content-center me-2">

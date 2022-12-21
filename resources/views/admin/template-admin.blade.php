@@ -118,7 +118,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <h6 class="text-white mx-auto d-none">Sistem Antrian Konten Berita Website Prodi Fakultas Kedokteran
+                    <h6 class="text-white mx-auto d-none">Sistem Monitoring Konten Website Prodi Fakultas Kedokteran
                     </h6>
 
                 </nav>
@@ -129,12 +129,12 @@
                 <div class="wx2 mx-auto">
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
-                            <p>{{ $message }}</p>
+                            <p>{{ ucfirst($message) }}</p>
                         </div>
                     @endif
                     @if ($message = Session::get('failed'))
                         <div class="alert alert-danger">
-                            <p>{{ $message }}</p>
+                            <p>{{ ucfirst($message) }}</p>
                         </div>
                     @endif
                     @yield('content')
@@ -148,7 +148,7 @@
             <footer class="sticky-footer mt-2">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <h6 class="black">Copyright 2022. Fakultas Kedokteran Universitas Diponegoro.</h6>
+                        <h6 class="black">Copyright 2022. Musa Alfian Maulana & Hizkiel Putra Pakubumi.</h6>
                     </div>
                 </div>
             </footer>

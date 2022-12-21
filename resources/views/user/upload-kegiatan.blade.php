@@ -72,7 +72,7 @@
                         @csrf
 
                         <div class="mb-3">
-                            <label  for="judul" class="form-label">Judul Laporan Kegiatan</label>
+                            <label  for="judul" class="form-label">Judul Kegiatan</label>
                             <input name="name" type="text" class="form-control" id="judul" aria-describedby="judul">
                         </div>
                         <div class="mb-3">
