@@ -1,3 +1,26 @@
+/* Upload kegiatan */
+.upload__kegiatan .alert-success {
+    border-color: #0b4d35;
+}
+
+/* Laporan kegiatan */
+.laporan__kegiatan .alert {
+    border-color: #66511a;
+}
+
+.laporan__kegiatan .alert h5 {
+    font-weight: 700;
+}
+
+.laporan__kegiatan .alert h6 {
+    color: #66511a;
+    line-height: 1.3rem;
+}
+
+.laporan__kegiatan .alert a:hover {
+    text-decoration: underline;
+}
+
 /* Tablet */
 @media only screen and (min-width: 768px) {
     .upload__kegiatan .content {

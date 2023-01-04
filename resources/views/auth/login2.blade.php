@@ -11,15 +11,15 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <!-- Custom Style -->
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('css/login-style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/login-style.css') }}">
 </head>
 
 <body>
     @if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <p>{{ $message }}</p>
-    </div>
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
     @endif
     <div class="login">
         <div class="content d-flex justify-content-center align-items-center">
@@ -33,16 +33,17 @@
                     @csrf
                     <div class="mb-3 mt-4">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                            name="email">
                         @if ($errors->has('email'))
-                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                            <span class="text-danger">{{ $errors->first('email') }}</span>
                         @endif
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Kata Sandi</label>
                         <input type="password" class="form-control" id="password" name="password">
                         @if ($errors->has('password'))
-                        <span class="text-danger">{{ $errors->first('password') }}</span>
+                            <span class="text-danger">{{ $errors->first('password') }}</span>
                         @endif
                     </div>
                     <button type="submit" class="btn btn-primary w-100 btn__green mt-4">Masuk</button>
@@ -51,11 +52,12 @@
         </div>
         <div class="d-none d-flex justify-content-center align-items-center">
             <div class="position-absolute">
-                <img src="{{asset('image/login-image.jpeg')}}" alt="">
+                <img src="{{ asset('image/login-image.jpeg') }}" alt="">
             </div>
             <div class="title w-75">
-                <h1 class="text-white w-75 fw-bold">Kirim dan pantau berita dengan mudah</h1>
-                <h5 class="light mt-3 fwlight light">Sistem berbasis website yang berfungsi sebagai sarana program studi dalam mengirimkan dan
+                <h1 class="text-white w-75 fw-bold">Kirim dan Pantau Berita dengan Mudah</h1>
+                <h5 class="light mt-3 fwlight light">Sistem berbasis website yang berfungsi sebagai sarana program studi
+                    dalam mengirimkan dan
                     memantau
                     perkembangan
                     notulensi
@@ -73,7 +75,8 @@
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

@@ -76,8 +76,41 @@
                                         <div class="d-flex">
                                             <a class="alert alert-primary me-2"href="/reports/{{ $report->id }}/edit?edit=diproses"
                                                 onclick="return confirm('Apakah yakin akan diproses?');">Proses</a>
-                                            <a class="alert alert-danger"href="/reports/{{ $report->id }}/edit?edit=ditolak"
-                                                onclick="return confirm('Apakah yakin akan ditolak?');">Tolak</a>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="alert alert-danger" data-bs-toggle="modal"
+                                                data-bs-target="#tolakLaporan">
+                                                Tolak
+                                            </button>
+                                            <!-- Modal kategori -->
+                                            <div class="modal fade" id="tolakLaporan" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5 black fw-bold"
+                                                                id="exampleModalLabel">Alasan Penolakan</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form id="" method="POST">
+                                                                @csrf
+                                                                <label for="alasan" class="form-label">Masukkan Alasan
+                                                                    Penolakan</label>
+                                                                <textarea class="form-control" id="alasan" rows="3"></textarea>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Batal</button>
+                                                            <button type="submit"
+                                                                form="kategori-form"class="btn btn-primary">Simpan</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- <a class="alert alert-danger"href="/reports/{{ $report->id }}/edit?edit=ditolak"
+                                                onclick="return confirm('Apakah yakin akan ditolak?');">Tolak</a> --}}
                                         </div>
                                     </td>
                                 @elseif ($report->status === 'diproses')

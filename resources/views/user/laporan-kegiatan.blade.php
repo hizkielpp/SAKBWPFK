@@ -3,6 +3,9 @@
 @section('content')
     {{-- Bootstrap data tables --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+
+    {{-- Custom css --}}
+    <link rel="stylesheet" href="{{ asset('css/upload-kegiatan-style.css') }}">
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -15,6 +18,16 @@
             </h4>
             <span></span>
         </div>
+        <div class="mt-3">
+            <div class="alert alert-warning card2">
+                <h5 class="mb-2">Informasi :</h5>
+                <div class="d-flex align-items-start">
+                    <h6>1.</h6>
+                    <h6 class="grey ms-1">Laporan kegiatan A ditolak! Alasan penolakan : lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, ratione. Ex
+                        necessitatibus ipsum suscipit earum. <br> Silahkan perbaiki dan upload ulang laporan kegiatan <a href="">disini</a>.</h6>
+                </div>
+            </div>
+        </div>
         <div class="table__container">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4 class="fw-bold green">Daftar Laporan Kegiatan</h4>
@@ -25,7 +38,7 @@
                 <table id="laporanKegiatan" class="table">
                     <thead>
                         <tr>
-                            <th>Judul</th>
+                            <th>Judul Laporan</th>
                             <th>Status</th>
                             <th class="urutan">Urutan ke</th>
                             {{-- <th>Aksi</th> --}}

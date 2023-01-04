@@ -1,7 +1,6 @@
 @extends('/user/template-user')
 
 @section('content')
-
     {{-- Dropify --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
         integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
@@ -15,12 +14,12 @@
     <link rel="stylesheet" href="{{ asset('css/upload-kegiatan-style.css') }}">
 
     @if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <p>{{ $message }}</p>
-    </div>
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
     @endif
     @error('file')
-    <span class="text-danger">{{ $message }}</span>
+        <span class="text-danger">{{ $message }}</span>
     @enderror
     <div class="upload__kegiatan wx mx-auto mt2">
         <div class="navback d-flex flex-wrap align-items-center mb-3">
@@ -37,6 +36,9 @@
                 <span></span>
             </div>
             <div class="w-100 content mx-auto">
+                <div class="alert alert-success">
+                    <h6>Laporan kegiatan berhasil di upload</h6>
+                </div>
                 <div class="main__card py-3 px-4">
                     <h5 class="black fwsemi mb-3">Ketentuan</h5>
                     <div class="d-flex align-items-start">
@@ -72,8 +74,9 @@
                         @csrf
 
                         <div class="mb-3">
-                            <label  for="judul" class="form-label">Judul Kegiatan</label>
-                            <input name="name" type="text" class="form-control" id="judul" aria-describedby="judul">
+                            <label for="judul" class="form-label">Judul Kegiatan</label>
+                            <input name="name" type="text" class="form-control" id="judul"
+                                aria-describedby="judul">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Upload File</label>
@@ -93,4 +96,3 @@
         $('.dropify').dropify();
     </script>
 @endsection
-

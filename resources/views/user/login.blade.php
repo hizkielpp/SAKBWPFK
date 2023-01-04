@@ -71,7 +71,7 @@
                 <img src="{{ asset('image/gambar-login.png') }}" alt="Gambar Login">
             </div>
             <div class="title w-75">
-                <h1 class="text-white w-75 fw-bold">Kirim dan pantau berita dengan mudah</h1>
+                <h1 class="text-white w-75 fw-bold">Kirim dan Pantau Berita dengan Mudah</h1>
                 <h5 class="light mt-5 fwlight">Sistem berbasis website yang berfungsi sebagai sarana program studi
                     dalam mengirimkan dan
                     memantau
