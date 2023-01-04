@@ -29,7 +29,7 @@
                             <th>Judul</th>
                             <th>Status</th>
                             <th class="urutan">Urutan ke</th>
-                            <th>Aksi</th>
+                            {{-- <th>Aksi</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -39,13 +39,13 @@
                                 <td>{{ $report->name }}</td>
                                 <td>{{ $report->status }}</td>
                                 <td class="urutan">{{ $report->id }}</td>
-                                <td>
+                                {{-- <td>
                                     <div class="d-flex align-items-center">
                                         <a href=""><i class="fa-regular fa-pen-to-square me-1"></i></a>
                                         <button type="button" class="btn__delete"><i
                                                 class="fa-solid fa-trash"></i></button>
                                     </div>
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>
@@ -63,7 +63,7 @@
     <script>
         $(document).ready(function() {
             $('#laporanKegiatan').DataTable({
-                responsive: true,
+                responsive: false,
                 destroy: true,
                 order: [
                     [3, 'asc']

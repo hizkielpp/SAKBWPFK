@@ -11,6 +11,7 @@
             <table id="dashboard" class="table">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Keterangan</th>
                         <th>Judul Laporan</th>
                         <th>Waktu</th>
@@ -19,9 +20,10 @@
                 <tbody>
                     @foreach ($logs as $log)
                         <tr>
+                            <td>{{ $log->id }}</td>
                             <td>{{ ucfirst($log->keterangan) }}</td>
                             <td>{{ $log->name }}</td>
-                            <td>{{ date('D, d F Y H:i:s ', strtotime($log->created_at)) }}</td>
+                            <td>{{ date('d F Y H:i:s ', strtotime($log->created_at)) }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -36,7 +38,7 @@
                 responsive: true,
                 destroy: true,
                 order: [
-                    [2, 'asc']
+                    [0, 'desc']
                 ],
                 language: {
                     lengthMenu: 'Menampilkan _MENU_ baris',
