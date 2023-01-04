@@ -68,19 +68,28 @@
     border-color: #98B6D7 !important;
 }
 
+table .alert-primary:hover {
+    background-color: #B6D4FE;
+    transition: .2s linear;
+}
+
 .alert-warning {
     border-color: #E1CE97 !important;
 }
 
-.alert-warning:hover {
+table .alert-warning:hover {
     color: #66511a !important;
+    transition: .2s linear;
+    background-color: #F1DEA7;
 }
 
 .alert-danger {
     border-color: #D7A4A9 !important;
 }
 
-.alert-danger:hover {
+table .alert-danger:hover {
+    background-color: #F5C2C7;
+    transition: .2s linear;
     color: #60201a;
 }
 
@@ -88,8 +97,11 @@
     border-color: #9CBDAE !important;
 }
 
-.alert-success:hover {
+table .alert-success:hover {
     color: #0b4d35 !important;
+    transition: .2s linear;
+    background-color: #8DCFB7;
+
 }
 
 table th,

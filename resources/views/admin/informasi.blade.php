@@ -109,12 +109,14 @@
                                 <div class="d-flex align-items-center">
                                     <a onclick="return confirm('Apakah yakin informasi akan dihapus?');"
                                         href="{{ route('information.delete', ['id' => $information->id]) }}"><button
-                                            type="button" class="btn__delete"><i
+                                            type="button" class="btn__delete" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            data-bs-title="Hapus"><i
                                                 class="fa-solid fa-trash"></i></button></a>
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn__edit" data-bs-toggle="modal"
                                         data-bs-target="#editInformasi">
-                                        <i class="fa-regular fa-pen-to-square"></i>
+                                        <i class="fa-regular fa-pen-to-square" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" data-bs-title="Edit informasi"></i>
                                     </button>
 
                                 </div>
@@ -179,5 +181,11 @@
                 ],
             });
         });
+    </script>
+
+    {{-- Tooltips --}}
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
 @endsection

@@ -25,7 +25,6 @@
                 <table id="laporanKegiatan" class="table">
                     <thead>
                         <tr>
-                            <th>No</th>
                             <th>Judul</th>
                             <th>Status</th>
                             <th class="urutan">Urutan ke</th>
@@ -35,7 +34,6 @@
                     <tbody>
                         @foreach ($reports as $key => $report)
                             <tr>
-                                <td>{{ $key + 1 }}</td>
                                 <td>{{ $report->name }}</td>
                                 <td>{{ $report->status }}</td>
                                 <td class="urutan">{{ $report->id }}</td>
@@ -66,7 +64,7 @@
                 responsive: false,
                 destroy: true,
                 order: [
-                    [3, 'asc']
+                    [2, 'desc']
                 ],
                 language: {
                     lengthMenu: 'Menampilkan _MENU_ baris',

@@ -21,7 +21,7 @@
                         </div>
                         <div class="d-flex align-items-start">
                             <i class="fa-solid fa-circle-check me-2"></i>
-                            <h4>Pantau perkembangan pembuatan konten website
+                            <h4>Pantau perkembangan progress konten website
                             </h4>
                         </div>
                     </div>
