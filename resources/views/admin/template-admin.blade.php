@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Template Admin</title>
+    <title>@yield('title')</title>
     <!-- Bootstrap core JavaScript-->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
@@ -136,6 +136,15 @@
                         <div class="alert alert-danger">
                             <p>{{ ucfirst($message) }}</p>
                         </div>
+                    @endif
+                    @if ($errors->any())
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger">
+                            <p>{{ ucfirst($error) }}</p>
+                        </div>
+                        @endforeach
+                    </ul>
                     @endif
                     @yield('content')
                 </div>

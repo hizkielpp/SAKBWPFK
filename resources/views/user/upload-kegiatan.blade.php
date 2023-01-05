@@ -1,5 +1,6 @@
 @extends('/user/template-user')
-
+@section('title','Upload Kegiatan')
+@section('laporanActive','active')
 @section('content')
     {{-- Dropify --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
@@ -36,9 +37,6 @@
                 <span></span>
             </div>
             <div class="w-100 content mx-auto">
-                <div class="alert alert-success">
-                    <h6>Laporan kegiatan berhasil di upload</h6>
-                </div>
                 <div class="main__card py-3 px-4">
                     <h5 class="black fwsemi mb-3">Ketentuan</h5>
                     <div class="d-flex align-items-start">
@@ -72,6 +70,9 @@
                 <div class="mt-3">
                     <form method="POST" action="{{ route('storeKegiatan') }}" enctype="multipart/form-data">
                         @csrf
+                        @if(isset($id))
+                        <input type="text" name="id" value="{{ $id }}" hidden>
+                        @endif
 
                         <div class="mb-3">
                             <label for="judul" class="form-label">Judul Kegiatan</label>
@@ -81,7 +82,7 @@
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Upload File</label>
                             <div class="dropify__wrapper">
-                                <input name="file" type="file" class="dropify" data-default-file="url_of_your_file"
+                                <input name="file" value="" type="file" class="dropify" data-default-file="url_of_your_file"
                                     data-max-file-size="1M" data-allowed-file-extensions="pdf" />
                             </div>
                         </div>

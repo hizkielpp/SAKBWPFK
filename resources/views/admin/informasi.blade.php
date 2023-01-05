@@ -1,5 +1,5 @@
 @extends('/admin/template-admin')
-
+@section('title','Informasi')
 @section('content')
     <h4 class="black fw-bold mb-3">Informasi</h4>
 

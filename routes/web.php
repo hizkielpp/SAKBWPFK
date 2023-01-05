@@ -71,13 +71,15 @@ Route::middleware(['checkAuth'])->group(function () {
             return view('user.informasi', ['email' => Auth::user()->email]);
         });
         Route::get('/informasi', [InformationController::class, 'userInformation'])->name('user.information');
-        Route::get('/upload-kegiatan', [ReportController::class, 'uploadKegiatan'])->name('upload-kegiatan');
+        // Route::get('/upload-kegiatan', [ReportController::class, 'uploadKegiatan'])->name('upload-kegiatan');
+        Route::get('/upload-kegiatan/{id?}', [ReportController::class, 'uploadKegiatan'])->name('upload-kegiatan');
         Route::post('/store-kegiatan', [ReportController::class, 'store'])->name('storeKegiatan');
         Route::get('/laporan-kegiatan', [ReportController::class, 'indexDatatable'])->name('indexDatatable');
     });
 
     //Section Admin
     Route::middleware(['checkAdmin'])->group(function () {
+        Route::post('reports/ditolak',[ReportController::class,'ditolak'])->name('report.tolak');
         Route::get('reports/{id}/edit', [ReportController::class, 'edit']);
         Route::get('/download/{id}', [ReportController::class, 'download'])->name('report.download');
         // Route::get('/index-admin', function(Request $request){

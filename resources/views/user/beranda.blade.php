@@ -1,5 +1,6 @@
 @extends('/user/template-user')
-
+@section('title','Beranda')
+@section('berandaActive','active')
 @section('content')
     {{-- Custom style --}}
     <link rel="stylesheet" href="{{ asset('css/beranda-style.css') }}">

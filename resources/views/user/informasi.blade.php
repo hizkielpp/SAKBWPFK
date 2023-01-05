@@ -1,5 +1,6 @@
 @extends('/user/template-user')
-
+@section('title','Informasi')
+@section('informasiActive','active')
 @section('content')
     {{-- Custom style --}}
     <link rel="stylesheet" href="{{ asset('css/informasi-style.css') }}">

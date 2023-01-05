@@ -1,5 +1,5 @@
 @extends('/admin/template-admin')
-
+@section('title','Dashboard')
 @section('content')
     <h4 class="black fw-bold mb-3">Dashboard</h4>
     <div class="row">
@@ -77,7 +77,7 @@
                                             <a class="alert alert-primary me-2"href="/reports/{{ $report->id }}/edit?edit=diproses"
                                                 onclick="return confirm('Apakah yakin akan diproses?');">Proses</a>
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="alert alert-danger" data-bs-toggle="modal"
+                                            <button type="button" class="alert alert-danger openModalTolak" data-id="{{ $report->id }}"data-bs-toggle="modal"
                                                 data-bs-target="#tolakLaporan">
                                                 Tolak
                                             </button>
@@ -93,18 +93,22 @@
                                                                 aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form id="" method="POST">
+                                                            <form id="form-tolak" method="POST" action="{{ route('report.tolak') }}">
                                                                 @csrf
+                                                                <input type="text" id="id" name="id" hidden>
                                                                 <label for="alasan" class="form-label">Masukkan Alasan
                                                                     Penolakan</label>
-                                                                <textarea class="form-control" id="alasan" rows="3"></textarea>
+                                                                <textarea class="form-control" id="alasan" name="alasan" rows="3"></textarea>
                                                             </form>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">Batal</button>
                                                             <button type="submit"
-                                                                form="kategori-form"class="btn btn-primary">Simpan</button>
+                                                                form="form-tolak"
+                                                                class="btn btn-primary"
+                                                                onclick="return confirm('Apakah yakin akan ditolak?');"
+                                                            >Simpan</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -161,6 +165,13 @@
                     [5, 10, 20, 'All'],
                 ],
             });
+        });
+    </script>
+    <script>
+        $(document).on("click", ".openModalTolak", function () {
+        var id = $(this).data('id');
+        $(".modal-body #id").attr('value',id);
+        // alert($(".modal-body #id").attr('value'));
         });
     </script>
 @endsection

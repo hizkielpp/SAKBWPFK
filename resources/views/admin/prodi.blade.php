@@ -1,5 +1,5 @@
 @extends('/admin/template-admin')
-
+@section('title','Konten Prodi')
 @section('content')
     <h4 class="black fw-bold mb-3">
         Konten Prodi

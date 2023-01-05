@@ -18,7 +18,7 @@
     {{-- Custom css --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-    <title>Beranda | SAKBPFK</title>
+    <title>@yield('title') | SAKBPFK</title>
 </head>
 
 <body>
@@ -39,13 +39,13 @@
             <div class="collapse navbar-collapse text-end" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/beranda">Beranda</a>
+                        <a class="nav-link @yield('berandaActive')" aria-current="page" href="/beranda">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/laporan-kegiatan">Laporan Kegiatan</a>
+                        <a class="nav-link @yield('laporanActive')" aria-current="page" href="/laporan-kegiatan">Laporan Kegiatan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/informasi">Informasi</a>
+                        <a class="nav-link @yield('informasiActive')" aria-current="page" href="/informasi">Informasi</a>
                     </li>
                 </ul>
                 <div class="dropdown">

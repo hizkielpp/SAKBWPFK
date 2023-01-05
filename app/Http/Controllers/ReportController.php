@@ -13,12 +13,20 @@ use DataTables;
 
 class ReportController extends Controller
 {
-    public function uploadKegiatan()
+    public function uploadKegiatan($id=null)
     {
         $email = Auth::user()->email;
-        return view('user.upload-kegiatan', [
-            'email' => $email,
-        ]);
+        if(empty($id)){
+            return view('user.upload-kegiatan', [
+                'email' => $email,
+            ]);
+        }else{
+            return view('user.upload-kegiatan', [
+                'email' => $email,
+                'id' => $id
+            ]);
+        }
+
     }
     public function getJson()
     {
@@ -28,16 +36,20 @@ class ReportController extends Controller
     public function indexDatatable()
     {
         $email = Auth::user()->email;
+        $rejectedReports = Report::where([['id_user', '=', Auth::id()],['keterangan', '<>','null']])->get();
+        if ($rejectedReports->isEmpty()) {
+            return view('user.laporan-kegiatan', [
+                'reports' => Report::where('id_user', Auth::id())->get(),
+                'email' => $email,
+            ]);
+        }
         return view('user.laporan-kegiatan', [
+            'rejectedReports' => $rejectedReports,
             'reports' => Report::where('id_user', Auth::id())->get(),
             'email' => $email,
         ]);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //menampilkan semua laporan untuk user
     public function index()
     {
         // $report = Report::where('id','2')->first();
@@ -47,11 +59,7 @@ class ReportController extends Controller
         $reports = Report::where('id_user', '=', $userId)->orderBy('created_at', 'asc')->orderBy('updated_at', 'desc')->paginate(10);
         return view('reports.index', compact('reports'))->with(request()->input('page'));
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //menampilkan laporan untuk admin
     public function indexAdmin()
     {
         $reports = Report::where('status', '=', 'terupload')->orderBy('created_at', 'desc')->get();
@@ -68,23 +76,25 @@ class ReportController extends Controller
         // return view('reports.indexAdmin', compact('reports'))->with(request()->input('page'));
         return view('admin.prodi', compact('reports'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    //fungsi untuk menolak laporan dengan alasan yang spesifik
+    public function ditolak(Request $request)
     {
-        return view("user.laporan-kegiatan");
+        $request->validate([
+            'id' => 'required',
+            'alasan'=> 'required'
+        ]);
+        $report = Report::where('id', $request->input('id'))->first();
+        $report->keterangan = $request->input('alasan');
+        $report->status = "ditolak";
+        $report->save();
+        Log::create([
+            'id_user' => Auth::id(),
+            'name' => $report->name,
+            'keterangan' => 'terupload ke ditolak'
+        ]);
+        return back()->with('success', 'berita telah berhasil ditolak');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    //fungsi untuk user upload laporan
     public function store(Request $request)
     {
         //validate input
@@ -94,7 +104,6 @@ class ReportController extends Controller
             'file' => 'required|mimes:docx,pdf'
         ]);
         $userId = Auth::id();
-        // dd($userId);
         $name = $request->input('name');
         $file = $request->file('file');
         $fileName = time() . '.' . $file->getClientOriginalName();
@@ -115,28 +124,18 @@ class ReportController extends Controller
             // 'post'=>'diproses',
             'keterangan' => 'user mengupload bahan berita'
         ]);
+        if($request->input('id')){
+            $prevReport = Report::where('id',$request->input('id'))->first();
+            $prevReport->keterangan = null;
+            // dd($prevReport->keterangan);
+            $prevReport->save();
+            dd($prevReport);
+            return redirect()->route('indexDatatable')->with('success', 'Bahan berita sebagai revisi berhasil diupload');
+        }
         //redirect the user and send friendly message
         return redirect()->route('indexDatatable')->with('success', 'Bahan berita berhasil diupload');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //fungsi untuk memproses laporan baik diproses, divalidasi supervisor ataupun diposting
     public function edit(Request $request, $id)
     {
         $report = Report::where('id', $id)->first();
@@ -190,13 +189,7 @@ class ReportController extends Controller
         }
         return redirect()->route('reportIndexAdmin')->with('query tidak ada');
     }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //fungsi untuk download laporan bagi admin
     public function download(Request $request, $id)
     {
         $report = Report::where('id', $id)->get();
@@ -209,27 +202,5 @@ class ReportController extends Controller
         );
         return response()->download($filePath, $report[0]->file_name, $headers);
         // return Response::download($file, $report[0]->file_name, $headers);
-    }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

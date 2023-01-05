@@ -1,16 +1,13 @@
 @extends('/user/template-user')
-
+@section('title','Laporan Kegiatan')
+@section('laporanActive','active')
 @section('content')
     {{-- Bootstrap data tables --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
 
     {{-- Custom css --}}
     <link rel="stylesheet" href="{{ asset('css/upload-kegiatan-style.css') }}">
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
+
     <div class="laporan__kegiatan wx mx-auto mt2">
         <div class="d-flex header align-items-center justify-content-center mb-4">
             <span></span>
@@ -18,15 +15,26 @@
             </h4>
             <span></span>
         </div>
-        <div class="mt-3">
-            <div class="alert alert-warning card2">
-                <h5 class="mb-2">Informasi :</h5>
-                <div class="d-flex align-items-start">
-                    <h6>1.</h6>
-                    <h6 class="grey ms-1">Laporan kegiatan A ditolak! Alasan penolakan : lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, ratione. Ex
-                        necessitatibus ipsum suscipit earum. <br> Silahkan perbaiki dan upload ulang laporan kegiatan <a href="">disini</a>.</h6>
-                </div>
+        @if ($message = Session::get('success'))
+        <div class="w-100 content mx-auto">
+            <div class="alert alert-success">
+                <h6>{{ $message }}</h6>
             </div>
+        </div>
+        @endif
+        <div class="mt-3">
+                @if (isset($rejectedReports))
+                <div class="alert alert-warning card2">
+
+                        <h5 class="mb-2">Informasi :</h5>
+                        <div class="d-flex align-items-start">
+                            @foreach ($rejectedReports as $key => $rejectedReport )
+                            <h6>{{ $key+1 }}.</h6>
+                            <h6 class="grey ms-1">Laporan kegiatan {{ $rejectedReport->name }} ditolak! <br>Alasan penolakan : {{ $rejectedReport->keterangan }}. <br> Silahkan perbaiki dan upload ulang laporan kegiatan <a href="{{ route('upload-kegiatan',['id'=>$rejectedReport->id]) }}">disini</a>.</h6>
+                            @endforeach
+                        </div>
+                </div>
+                @endif
         </div>
         <div class="table__container">
             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -81,7 +89,7 @@
                 ],
                 language: {
                     lengthMenu: 'Menampilkan _MENU_ baris',
-                    zeroRecords: 'Nothing found - sorry',
+                    zeroRecords: 'Anda belum mengupload laporan kegiatan. <br>Silahkan upload laporan kegiatan terlebih dahulu.',
                     info: 'Menampilkan _PAGE_ dari _PAGES_',
                     infoEmpty: 'Baris tidak tersedia',
                     infoFiltered: '(filtered from _MAX_ total records)',

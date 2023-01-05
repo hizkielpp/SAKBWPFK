@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("name")->unique();
             $table->string("file_name");
+            $table->longText("keterangan")->nullable();
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->enum('status',['terupload','diproses','ditolak','validasi supervisor','sudah diposting'])->default('terupload');
